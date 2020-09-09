@@ -1,0 +1,3 @@
+resources:
+  - module: bossman.plugins.akamai.property
+    pattern: akamai/property/{name}/
