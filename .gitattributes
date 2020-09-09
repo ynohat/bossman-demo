@@ -1,0 +1,7 @@
+#pattern  filter=crypt diff=crypt merge=crypt
+
+#transcrypt secret :
+# CIPHER:   aes-256-cbc
+# PASSWORD: bossman-demo
+
+dist/akamai/**/*.json filter=crypt diff=crypt merge=crypt
