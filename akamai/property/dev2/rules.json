@@ -18,7 +18,7 @@
                ],
                "enableTrueClientIp": false,
                "forwardHostHeader": "REQUEST_HOST_HEADER",
-               "hostname": "qa.o.acme.net",
+               "hostname": "dev2.o.acme.net",
                "httpPort": 80,
                "httpsPort": 443,
                "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",

@@ -1,0 +1,7 @@
+[
+   {
+      "cnameFrom": "www.acme.com",
+      "cnameTo": "ak.hogg.fr.edgekey.net",
+      "cnameType": "EDGE_HOSTNAME"
+   }
+]

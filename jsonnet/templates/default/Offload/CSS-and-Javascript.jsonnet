@@ -1,20 +1,24 @@
 local papi = import '../../../papi.libsonnet';
 
-{
+papi.rule {
   name: 'CSS and Javascript',
   comments: |||
     Overrides the default caching behavior for CSS and JavaScript objects that are 
     cached on the edge server. Because these object types are dynamic, the TTL is 
     brief.
-  |||,
+    
+    src: %s
+  ||| % (std.thisFile),
   criteria: [
     papi.criteria.fileExtension {
-      values: ['css', "js"],
+      values: ['css', "js", "jsx"],
     },
   ],
   behaviors: [
     papi.behavior.caching {
-      ttl: '7d',
+      honorMustrevalidateEnabled: null,
+      honorPrivateEnabled: null,
+      ttl: '19d',
     },
     papi.behavior.prefreshCache,
     papi.behavior.prefetchable,

@@ -1,0 +1,7 @@
+[
+   {
+      "cnameFrom": "dev3.acme.net",
+      "cnameTo": "ak.hogg.fr.edgekey.net",
+      "cnameType": "EDGE_HOSTNAME"
+   }
+]
