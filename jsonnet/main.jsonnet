@@ -91,6 +91,23 @@ local template = {
     }
   ],
 
+  // DEV6
+
+  "akamai/property/dev6/rules.json": template {
+    rules+: {
+      originHostname:: "dev6.o.acme.net",
+      cpCode:: 585898
+    },
+  },
+
+  "akamai/property/dev6/hostnames.json": [
+    {
+        "cnameFrom": "dev6.acme.net",
+        "cnameTo": "ak.hogg.fr.edgekey.net",
+        "cnameType": "EDGE_HOSTNAME"
+    }
+  ],
+
   // INTEGRATION
 
   "akamai/property/integration/rules.json": template {
