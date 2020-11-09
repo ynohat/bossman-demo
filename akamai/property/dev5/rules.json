@@ -262,7 +262,7 @@
                         "name": "prefreshCache",
                         "options": {
                            "enabled": true,
-                           "prefreshval": 90
+                           "prefreshval": 50
                         }
                      },
                      {

@@ -20,7 +20,9 @@ papi.rule {
       honorPrivateEnabled: null,
       ttl: '31d',
     },
-    papi.behavior.prefreshCache,
+    papi.behavior.prefreshCache {
+      prefreshval: 50
+    },
     papi.behavior.prefetchable,
   ],
 }
