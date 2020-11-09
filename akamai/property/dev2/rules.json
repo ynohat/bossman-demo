@@ -428,7 +428,7 @@
             "options": { }
          }
       ],
-      "comments": "The behaviors in the Default Rule apply to all requests for the property \nhostname(s) unless another rule overrides the Default Rule settings.\nFun fact: this rule MUST be called 'default' in JSON, otherwise weird things happen.\n\nsrc: jsonnet/templates/default.jsonnet\n",
+      "comments": "The behaviors in the Default Rule apply to all requests for the property \nhostname(s) unless another rule overrides the Default Rule settings.\n\nFun fact: this rule MUST be called 'default' in JSON, otherwise weird things happen.\n\nsrc: jsonnet/templates/default.jsonnet\n",
       "name": "default",
       "options": {
          "is_secure": false
