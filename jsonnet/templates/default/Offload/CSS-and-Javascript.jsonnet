@@ -21,7 +21,7 @@ papi.rule {
       ttl: '31d',
     },
     papi.behavior.prefreshCache {
-      prefreshval: 50
+      prefreshval: 80
     },
     papi.behavior.prefetchable,
   ],
