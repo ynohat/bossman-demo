@@ -108,6 +108,23 @@ local template = {
     }
   ],
 
+  // DEV7
+
+  "akamai/property/dev7/rules.json": template {
+    rules+: {
+      originHostname:: "dev7.o.acme.net",
+      cpCode:: 585898
+    },
+  },
+
+  "akamai/property/dev7/hostnames.json": [
+    {
+        "cnameFrom": "dev7.acme.net",
+        "cnameTo": "ak.hogg.fr.edgekey.net",
+        "cnameType": "EDGE_HOSTNAME"
+    }
+  ],
+
   // INTEGRATION
 
   "akamai/property/integration/rules.json": template {
