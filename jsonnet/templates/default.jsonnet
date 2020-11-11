@@ -11,7 +11,7 @@ papi.root {
     hostname(s) unless another rule overrides the Default Rule settings.
     
     Fun fact: this rule MUST be called 'default' in JSON, otherwise weird things happen.
-      Fpp
+    
     src: %s
   ||| % (std.thisFile),
   behaviors: [
