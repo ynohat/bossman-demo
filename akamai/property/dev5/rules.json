@@ -55,13 +55,6 @@
             }
          },
          {
-            "name": "allowDelete",
-            "options": {
-               "allowBody": false,
-               "enabled": true
-            }
-         },
-         {
             "name": "mPulse",
             "options": {
                "apiKey": "",
