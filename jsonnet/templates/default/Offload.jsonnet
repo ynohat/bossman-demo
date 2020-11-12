@@ -17,7 +17,9 @@ papi.rule {
       mustRevalidate: null,
     },
     papi.behavior.cacheError,
-    papi.behavior.downstreamCache,
+    papi.behavior.downstreamCache {
+      behavior: "MUST_REVALIDATE"
+    },
     papi.behavior.tieredDistribution,
   ],
   children: [

@@ -227,7 +227,7 @@
                   "name": "downstreamCache",
                   "options": {
                      "allowBehavior": "LESSER",
-                     "behavior": "ALLOW",
+                     "behavior": "MUST_REVALIDATE",
                      "sendHeaders": "CACHE_CONTROL_AND_EXPIRES",
                      "sendPrivate": false
                   }
