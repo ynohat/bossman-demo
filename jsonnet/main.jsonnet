@@ -57,74 +57,6 @@ local template = {
     }
   ],
 
-  // DEV4
-
-  "akamai/property/dev4/rules.json": template {
-    rules+: {
-      originHostname:: "dev4.o.acme.net",
-      cpCode:: 585898
-    },
-  },
-
-  "akamai/property/dev4/hostnames.json": [
-    {
-        "cnameFrom": "dev4.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
-  ],
-
-  // DEV5
-
-  "akamai/property/dev5/rules.json": template {
-    rules+: {
-      originHostname:: "dev5.o.acme.net",
-      cpCode:: 585898
-    },
-  },
-
-  "akamai/property/dev5/hostnames.json": [
-    {
-        "cnameFrom": "dev5.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
-  ],
-
-  // DEV6
-
-  "akamai/property/dev6/rules.json": template {
-    rules+: {
-      originHostname:: "dev6.o.acme.net",
-      cpCode:: 585898
-    },
-  },
-
-  "akamai/property/dev6/hostnames.json": [
-    {
-        "cnameFrom": "dev6.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
-  ],
-
-  // DEV7
-
-  "akamai/property/dev7/rules.json": template {
-    rules+: {
-      originHostname:: "dev7.o.acme.net",
-      cpCode:: 585898
-    },
-  },
-
-  "akamai/property/dev7/hostnames.json": [
-    {
-        "cnameFrom": "dev7.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
-  ],
-
   // INTEGRATION
 
   "akamai/property/integration/rules.json": template {
@@ -137,23 +69,6 @@ local template = {
   "akamai/property/integration/hostnames.json": [
     {
         "cnameFrom": "integration.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
-  ],
-
-  // QA
-
-  "akamai/property/qa/rules.json": template {
-    rules+: {
-      originHostname:: "qa.o.acme.net",
-      cpCode:: 585898
-    },
-  },
-
-  "akamai/property/qa/hostnames.json": [
-    {
-        "cnameFrom": "qa.acme.net",
         "cnameTo": "ak.hogg.fr.edgekey.net",
         "cnameType": "EDGE_HOSTNAME"
     }

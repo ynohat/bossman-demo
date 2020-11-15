@@ -26,5 +26,6 @@ papi.rule {
     import 'Offload/CSS-and-Javascript.jsonnet',
     import 'Offload/Static-objects.jsonnet',
     import 'Offload/Uncacheable-Responses.jsonnet',
+    import 'Offload/Assets-Flex-CacheId.jsonnet',
   ],
 }

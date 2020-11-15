@@ -412,6 +412,38 @@
                   "criteriaMustSatisfy": "all",
                   "name": "Uncacheable Responses",
                   "options": { }
+               },
+               {
+                  "behaviors": [
+                     {
+                        "name": "cacheId",
+                        "options": {
+                           "elements": [
+                              "abc"
+                           ],
+                           "includeValue": true,
+                           "optional": true,
+                           "rule": "INCLUDE_QUERY_PARAMS"
+                        }
+                     }
+                  ],
+                  "children": [ ],
+                  "comments": "Include query string parameters abc in cache id.\n\nsrc: jsonnet/templates/default/Offload/Assets-Flex-CacheId.jsonnet\n",
+                  "criteria": [
+                     {
+                        "name": "path",
+                        "options": {
+                           "matchCaseSensitive": false,
+                           "matchOperator": "MATCHES_ONE_OF",
+                           "values": [
+                              "/assets/*"
+                           ]
+                        }
+                     }
+                  ],
+                  "criteriaMustSatisfy": "all",
+                  "name": "Assets Flexible Cache Id",
+                  "options": { }
                }
             ],
             "comments": "Controls caching, which offloads traffic away from the origin. Most objects \ntypes are not cached.\nHowever, the child rules override this behavior for certain subsets of requests.\n\nsrc: jsonnet/templates/default/Offload.jsonnet\n",
