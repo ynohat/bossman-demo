@@ -37,7 +37,7 @@
             "name": "cpCode",
             "options": {
                "value": {
-                  "id": -2
+                  "id": 585898
                }
             }
          },
@@ -220,7 +220,7 @@
                   "options": {
                      "enabled": true,
                      "preserveStale": true,
-                     "ttl": "10s"
+                     "ttl": "60s"
                   }
                },
                {

@@ -16,7 +16,9 @@ papi.rule {
       honorPrivateEnabled: null,
       mustRevalidate: null,
     },
-    papi.behavior.cacheError,
+    papi.behavior.cacheError {
+      ttl: "60s"
+    },
     papi.behavior.downstreamCache {
       behavior: "MUST_REVALIDATE"
     },
