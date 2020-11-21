@@ -220,7 +220,7 @@
                   "options": {
                      "enabled": true,
                      "preserveStale": true,
-                     "ttl": "60s"
+                     "ttl": "65s"
                   }
                },
                {
