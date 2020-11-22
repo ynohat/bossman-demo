@@ -28,6 +28,7 @@ papi.root {
     },
     papi.behavior.allowPost,
     papi.behavior.allowPut,
+    papi.behavior.allowDelete,
     papi.behavior.mPulse {
       apiKey: "",
       bufferSize: ""
