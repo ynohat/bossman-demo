@@ -465,7 +465,14 @@
       "options": {
          "is_secure": false
       },
-      "variables": [ ]
-   },
-   "variables": [ ]
+      "variables": [
+         {
+            "description": "Constructed from the request hostname.",
+            "hidden": true,
+            "name": "PMUSER_ORIGIN_HOSTNAME",
+            "sensitive": true,
+            "value": ""
+         }
+      ]
+   }
 }
