@@ -6,6 +6,9 @@ papi.root {
 
   name: 'default',
   is_secure: false,
+
+  variables: import './variables.jsonnet',
+
   comments: |||
     The behaviors in the Default Rule apply to all requests for the property 
     hostname(s) unless another rule overrides the Default Rule settings.
