@@ -18,7 +18,7 @@ papi.rule {
     papi.behavior.caching {
       honorMustrevalidateEnabled: null,
       honorPrivateEnabled: null,
-      ttl: '31d',
+      ttl: '30d',
     },
     papi.behavior.prefreshCache {
       prefreshval: 80

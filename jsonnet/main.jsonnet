@@ -18,7 +18,7 @@ local template = {
   "akamai/property/dev1/hostnames.json": [
     {
         "cnameFrom": "dev1.acme.net",
-        "cnameTo": "NIXOMAIN.hogg.fr.edgekey.net",
+        "cnameTo": "ak.hogg.fr.edgekey.net",
         "cnameType": "EDGE_HOSTNAME"
     }
   ],
