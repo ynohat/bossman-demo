@@ -1,93 +1,93 @@
-local rules = import "./templates/rules.jsonnet";
+local rules = import './templates/rules.jsonnet';
 
 local template = {
-  contractId: "C-1ED34DY",
-  groupId: "177012"
+  contractId: 'C-1ED34DY',
+  groupId: '177012',
 } + rules;
 
 {
   // DEV1
 
-  "akamai/property/dev1/rules.json": template {
+  'akamai/property/dev1/rules.json': template {
     rules+: {
-      originHostname:: "dev1.o.acme.net",
-      cpCode:: 585898
+      originHostname:: 'dev1bis.o.acme.net',
+      cpCode:: 585898,
     },
   },
 
-  "akamai/property/dev1/hostnames.json": [
+  'akamai/property/dev1/hostnames.json': [
     {
-        "cnameFrom": "dev1.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
+      cnameFrom: 'dev1.acme.net',
+      cnameTo: 'ak.hogg.fr.edgekey.net',
+      cnameType: 'EDGE_HOSTNAME',
+    },
   ],
 
   // DEV2
 
-  "akamai/property/dev2/rules.json": template {
+  'akamai/property/dev2/rules.json': template {
     rules+: {
-      originHostname:: "dev2.o.acme.net",
-      cpCode:: 585898
+      originHostname:: 'dev2.o.acme.net',
+      cpCode:: 585898,
     },
   },
 
-  "akamai/property/dev2/hostnames.json": [
+  'akamai/property/dev2/hostnames.json': [
     {
-        "cnameFrom": "dev2.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
+      cnameFrom: 'dev2.acme.net',
+      cnameTo: 'ak.hogg.fr.edgekey.net',
+      cnameType: 'EDGE_HOSTNAME',
+    },
   ],
 
   // DEV3
 
-  "akamai/property/dev3/rules.json": template {
+  'akamai/property/dev3/rules.json': template {
     rules+: {
-      originHostname:: "dev3.o.acme.net",
-      cpCode:: 585898
+      originHostname:: 'dev3.o.acme.net',
+      cpCode:: 585898,
     },
   },
 
-  "akamai/property/dev3/hostnames.json": [
+  'akamai/property/dev3/hostnames.json': [
     {
-        "cnameFrom": "dev3.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
+      cnameFrom: 'dev3.acme.net',
+      cnameTo: 'ak.hogg.fr.edgekey.net',
+      cnameType: 'EDGE_HOSTNAME',
+    },
   ],
 
   // INTEGRATION
 
-  "akamai/property/integration/rules.json": template {
+  'akamai/property/integration/rules.json': template {
     rules+: {
-      originHostname:: "integration.o.acme.net",
-      cpCode:: 585898
+      originHostname:: 'integration.o.acme.net',
+      cpCode:: 585898,
     },
   },
 
-  "akamai/property/integration/hostnames.json": [
+  'akamai/property/integration/hostnames.json': [
     {
-        "cnameFrom": "integration.acme.net",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
+      cnameFrom: 'integration.acme.net',
+      cnameTo: 'ak.hogg.fr.edgekey.net',
+      cnameType: 'EDGE_HOSTNAME',
+    },
   ],
 
   // PROD
 
-  "akamai/property/prod/rules.json": template {
+  'akamai/property/prod/rules.json': template {
     rules+: {
-      originHostname:: "prod.o.acme.net",
-      cpCode:: 585898
+      originHostname:: 'prod.o.acme.net',
+      cpCode:: 585898,
     },
   },
 
-  "akamai/property/prod/hostnames.json": [
+  'akamai/property/prod/hostnames.json': [
     {
-        "cnameFrom": "www.acme.com",
-        "cnameTo": "ak.hogg.fr.edgekey.net",
-        "cnameType": "EDGE_HOSTNAME"
-    }
+      cnameFrom: 'www.acme.com',
+      cnameTo: 'ak.hogg.fr.edgekey.net',
+      cnameType: 'EDGE_HOSTNAME',
+    },
   ],
 }
