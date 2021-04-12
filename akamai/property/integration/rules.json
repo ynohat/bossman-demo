@@ -1,478 +1,386 @@
-{
-   "contractId": "C-1ED34DY",
-   "groupId": "177012",
-   "productId": "SPM",
-   "ruleFormat": "v2020-03-04",
-   "rules": {
-      "behaviors": [
-         {
-            "name": "origin",
-            "options": {
-               "cacheKeyHostname": "ORIGIN_HOSTNAME",
-               "compress": true,
-               "customCertificateAuthorities": [ ],
-               "customCertificates": [ ],
-               "customValidCnValues": [
-                  "{{Origin Hostname}}",
-                  "{{Forward Host Header}}"
-               ],
-               "enableTrueClientIp": false,
-               "forwardHostHeader": "REQUEST_HOST_HEADER",
-               "hostname": "integration.o.acme.net",
-               "httpPort": 80,
-               "httpsPort": 443,
-               "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
-               "originSni": true,
-               "originType": "CUSTOMER",
-               "standardCertificateAuthorities": [
-                  "akamai-permissive"
-               ],
-               "trueClientIpClientSetting": false,
-               "trueClientIpHeader": "True-Client-IP",
-               "useUniqueCacheKey": false,
-               "verificationMode": "PLATFORM_SETTINGS"
-            }
-         },
-         {
-            "name": "cpCode",
-            "options": {
-               "value": {
-                  "id": 585898
-               }
-            }
-         },
-         {
-            "name": "allowPost",
-            "options": {
-               "allowWithoutContentLength": false,
-               "enabled": true
-            }
-         },
-         {
-            "name": "allowPut",
-            "options": {
-               "enabled": true
-            }
-         },
-         {
-            "name": "allowDelete",
-            "options": {
-               "allowBody": false,
-               "enabled": true
-            }
-         },
-         {
-            "name": "mPulse",
-            "options": {
-               "apiKey": "",
-               "bufferSize": "",
-               "configOverride": "",
-               "enabled": true,
-               "requirePci": false
-            }
-         }
-      ],
-      "children": [
-         {
-            "behaviors": [
-               {
-                  "name": "enhancedAkamaiProtocol",
-                  "options": { }
-               },
-               {
-                  "name": "http2",
-                  "options": { }
-               },
-               {
-                  "name": "allowTransferEncoding",
-                  "options": {
-                     "enabled": true
-                  }
-               },
-               {
-                  "name": "removeVary",
-                  "options": {
-                     "enabled": true
-                  }
-               },
-               {
-                  "name": "sureRoute",
-                  "options": {
-                     "enableCustomKey": false,
-                     "enabled": true,
-                     "forceSslForward": false,
-                     "raceStatTtl": "30m",
-                     "testObjectUrl": "/akamai/srto2.html",
-                     "toHostStatus": "INCOMING_HH",
-                     "type": "PERFORMANCE"
-                  }
-               },
-               {
-                  "name": "prefetch",
-                  "options": {
-                     "enabled": true
-                  }
-               }
-            ],
-            "children": [
-               {
-                  "behaviors": [
-                     {
-                        "name": "adaptiveImageCompression",
-                        "options": {
-                           "compressMobile": true,
-                           "compressStandard": true,
-                           "tier1MobileCompressionMethod": "BYPASS",
-                           "tier1MobileCompressionValue": 80,
-                           "tier1StandardCompressionMethod": "BYPASS",
-                           "tier1StandardCompressionValue": 80,
-                           "tier2MobileCompressionMethod": "COMPRESS",
-                           "tier2MobileCompressionValue": 60,
-                           "tier2StandardCompressionMethod": "BYPASS",
-                           "tier2StandardCompressionValue": 60,
-                           "tier3MobileCompressionMethod": "COMPRESS",
-                           "tier3MobileCompressionValue": 40,
-                           "tier3StandardCompressionMethod": "COMPRESS",
-                           "tier3StandardCompressionValue": 40
-                        }
-                     }
-                  ],
-                  "children": [ ],
-                  "comments": "Improves load time by applying Adaptive Image Compression (AIC) to all JPEG \nimages. The poorer the connection quality, the more AIC compresses the image \nfiles.\n\nsrc: jsonnet/templates/default/Performance/JPEG-Images.jsonnet\n",
-                  "criteria": [
-                     {
-                        "name": "fileExtension",
-                        "options": {
-                           "matchCaseSensitive": false,
-                           "matchOperator": "IS_ONE_OF",
-                           "values": [
-                              "jpg",
-                              "jpeg",
-                              "jpe",
-                              "jif",
-                              "jfif",
-                              "jfi"
-                           ]
-                        }
-                     }
-                  ],
-                  "criteriaMustSatisfy": "all",
-                  "name": "JPEG Images",
-                  "options": { }
-               },
-               {
-                  "behaviors": [
-                     {
-                        "name": "gzipResponse",
-                        "options": {
-                           "behavior": "ORIGIN_RESPONSE"
-                        }
-                     }
-                  ],
-                  "children": [ ],
-                  "comments": "Compresses content to improve performance of clients with slow connections. \nApplies Last Mile Acceleration to requests when the returned object supports\ngzip compression.\n\nsrc: jsonnet/templates/default/Performance/Compressible-Objects.jsonnet\n",
-                  "criteria": [
-                     {
-                        "name": "contentType",
-                        "options": {
-                           "matchCaseSensitive": false,
-                           "matchOperator": "IS_ONE_OF",
-                           "matchWildcard": true,
-                           "values": [
-                              "text/*",
-                              "application/javascript",
-                              "application/x-javascript*",
-                              "application/json",
-                              "application/x-json",
-                              "application/*+json",
-                              "application/*+xml",
-                              "application/text",
-                              "application/vnd.microsoft.icon",
-                              "application/vnd-ms-fontobject",
-                              "application/x-font-ttf",
-                              "application/x-font-opentype",
-                              "application/x-font-truetype",
-                              "application/xmlfont/eot",
-                              "application/xml",
-                              "font/opentype",
-                              "font/otf",
-                              "font/eot",
-                              "image/svg+xml",
-                              "image/vnd.microsoft.icon"
-                           ]
-                        }
-                     }
-                  ],
-                  "criteriaMustSatisfy": "all",
-                  "name": "Compressible Objects",
-                  "options": { }
-               }
-            ],
-            "comments": "Improves the performance of delivering objects to end users. Behaviors in this \nrule are applied to all requests as appropriate.\n\nsrc: jsonnet/templates/default/Performance.jsonnet\n",
-            "criteria": [ ],
-            "criteriaMustSatisfy": "all",
-            "name": "Performance",
-            "options": { }
-         },
-         {
-            "behaviors": [
-               {
-                  "name": "caching",
-                  "options": {
-                     "behavior": "NO_STORE"
-                  }
-               },
-               {
-                  "name": "cacheError",
-                  "options": {
-                     "enabled": true,
-                     "preserveStale": true,
-                     "ttl": "71s"
-                  }
-               },
-               {
-                  "name": "downstreamCache",
-                  "options": {
-                     "allowBehavior": "LESSER",
-                     "behavior": "MUST_REVALIDATE",
-                     "sendHeaders": "CACHE_CONTROL_AND_EXPIRES",
-                     "sendPrivate": false
-                  }
-               },
-               {
-                  "name": "tieredDistribution",
-                  "options": {
-                     "enabled": true,
-                     "tieredDistributionMap": "CH2"
-                  }
-               }
-            ],
-            "children": [
-               {
-                  "behaviors": [
-                     {
-                        "name": "caching",
-                        "options": {
-                           "behavior": "MAX_AGE",
-                           "mustRevalidate": false,
-                           "ttl": "30d"
-                        }
-                     },
-                     {
-                        "name": "prefreshCache",
-                        "options": {
-                           "enabled": true,
-                           "prefreshval": 80
-                        }
-                     },
-                     {
-                        "name": "prefetchable",
-                        "options": {
-                           "enabled": true
-                        }
-                     }
-                  ],
-                  "children": [ ],
-                  "comments": "Overrides the default caching behavior for CSS and JavaScript objects that are \ncached on the edge server. Because these object types are dynamic, the TTL is \nbrief.\n\nsrc: jsonnet/templates/default/Offload/CSS-and-Javascript.jsonnet\n",
-                  "criteria": [
-                     {
-                        "name": "fileExtension",
-                        "options": {
-                           "matchCaseSensitive": false,
-                           "matchOperator": "IS_ONE_OF",
-                           "values": [
-                              "css",
-                              "js",
-                              "jsx"
-                           ]
-                        }
-                     }
-                  ],
-                  "criteriaMustSatisfy": "all",
-                  "name": "CSS and Javascript",
-                  "options": { }
-               },
-               {
-                  "behaviors": [
-                     {
-                        "name": "caching",
-                        "options": {
-                           "behavior": "MAX_AGE",
-                           "mustRevalidate": false,
-                           "ttl": "30d"
-                        }
-                     },
-                     {
-                        "name": "prefreshCache",
-                        "options": {
-                           "enabled": true,
-                           "prefreshval": 90
-                        }
-                     },
-                     {
-                        "name": "prefetchable",
-                        "options": {
-                           "enabled": true
-                        }
-                     }
-                  ],
-                  "children": [ ],
-                  "comments": "Overrides the default caching behavior for images, music, and similar objects \nthat are cached on the edge server.\nBecause these object types are static, the TTL is long.\n\nsrc: jsonnet/templates/default/Offload/Static-objects.jsonnet\n",
-                  "criteria": [
-                     {
-                        "name": "fileExtension",
-                        "options": {
-                           "matchCaseSensitive": false,
-                           "matchOperator": "IS_ONE_OF",
-                           "values": [
-                              "au",
-                              "bin",
-                              "bmp",
-                              "cab",
-                              "carb",
-                              "cct",
-                              "cdf",
-                              "class",
-                              "doc",
-                              "dcr",
-                              "dtd",
-                              "exe",
-                              "flv",
-                              "gcf",
-                              "gff",
-                              "gif",
-                              "grv",
-                              "hdml",
-                              "hqx",
-                              "ico",
-                              "ini",
-                              "jpeg",
-                              "jpg",
-                              "mov",
-                              "mp3",
-                              "nc",
-                              "pct",
-                              "pdf",
-                              "png",
-                              "ppc",
-                              "pws",
-                              "swa",
-                              "swf",
-                              "txt",
-                              "vbs",
-                              "w32",
-                              "wav",
-                              "wbmp",
-                              "wml",
-                              "wmlc",
-                              "wmls",
-                              "wmlsc",
-                              "xsd",
-                              "zip",
-                              "pict",
-                              "tif",
-                              "tiff",
-                              "mid",
-                              "midi",
-                              "ttf",
-                              "eot",
-                              "woff",
-                              "woff2",
-                              "otf",
-                              "svg",
-                              "svgz",
-                              "webp",
-                              "jxr",
-                              "jar",
-                              "jp2"
-                           ]
-                        }
-                     }
-                  ],
-                  "criteriaMustSatisfy": "all",
-                  "name": "Static objects",
-                  "options": { }
-               },
-               {
-                  "behaviors": [
-                     {
-                        "name": "downstreamCache",
-                        "options": {
-                           "allowBehavior": "LESSER",
-                           "behavior": "TUNNEL_ORIGIN",
-                           "sendHeaders": "CACHE_CONTROL_AND_EXPIRES",
-                           "sendPrivate": false
-                        }
-                     }
-                  ],
-                  "children": [ ],
-                  "comments": "Overrides the default downstream caching behavior for uncacheable object types. \nInstructs the edge server to pass Cache-Control and/or Expire headers from the\norigin to the client.\n\nsrc: jsonnet/templates/default/Offload/Uncacheable-Responses.jsonnet\n",
-                  "criteria": [
-                     {
-                        "name": "cacheability",
-                        "options": {
-                           "matchOperator": "IS_NOT",
-                           "value": "CACHEABLE"
-                        }
-                     }
-                  ],
-                  "criteriaMustSatisfy": "all",
-                  "name": "Uncacheable Responses",
-                  "options": { }
-               },
-               {
-                  "behaviors": [
-                     {
-                        "name": "cacheId",
-                        "options": {
-                           "elements": [
-                              "abc"
-                           ],
-                           "includeValue": true,
-                           "optional": true,
-                           "rule": "INCLUDE_QUERY_PARAMS"
-                        }
-                     }
-                  ],
-                  "children": [ ],
-                  "comments": "Include query string parameters abc in cache id.\n\nsrc: jsonnet/templates/default/Offload/Assets-Flex-CacheId.jsonnet\n",
-                  "criteria": [
-                     {
-                        "name": "path",
-                        "options": {
-                           "matchCaseSensitive": false,
-                           "matchOperator": "MATCHES_ONE_OF",
-                           "values": [
-                              "/assets/*"
-                           ]
-                        }
-                     }
-                  ],
-                  "criteriaMustSatisfy": "all",
-                  "name": "Assets Flexible Cache Id",
-                  "options": { }
-               }
-            ],
-            "comments": "Controls caching, which offloads traffic away from the origin. Most objects \ntypes are not cached.\nHowever, the child rules override this behavior for certain subsets of requests.\n\nsrc: jsonnet/templates/default/Offload.jsonnet\n",
-            "criteria": [ ],
-            "criteriaMustSatisfy": "all",
-            "name": "Offload",
-            "options": { }
-         }
-      ],
-      "comments": "The behaviors in the Default Rule apply to all requests for the property \nhostname(s) unless another rule overrides the Default Rule settings.\n\nFun fact: this rule MUST be called 'default' in JSON, otherwise weird things happen.\n\nsrc: jsonnet/templates/default.jsonnet\n",
-      "name": "default",
-      "options": {
-         "is_secure": false
-      },
-      "variables": [
-         {
-            "description": "Constructed from the request hostname.",
-            "hidden": true,
-            "name": "PMUSER_ORIGIN_HOSTNAME",
-            "sensitive": true,
-            "value": ""
-         }
-      ]
-   }
-}
+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
