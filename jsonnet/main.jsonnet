@@ -10,7 +10,7 @@ local template = {
 
   'akamai/property/dev1/rules.json': template {
     rules+: {
-      originHostname:: 'dev1bis.o.acme.net',
+      originHostname:: 'httpbin.org',
       cpCode:: 585898,
     },
   },
@@ -27,7 +27,7 @@ local template = {
 
   'akamai/property/dev2/rules.json': template {
     rules+: {
-      originHostname:: 'dev2.o.acme.net',
+      originHostname:: 'httpbin.org',
       cpCode:: 585898,
     },
   },
@@ -44,7 +44,7 @@ local template = {
 
   'akamai/property/dev3/rules.json': template {
     rules+: {
-      originHostname:: 'dev3.o.acme.net',
+      originHostname:: 'httpbin.org',
       cpCode:: 585898,
     },
   },
@@ -61,7 +61,7 @@ local template = {
 
   'akamai/property/integration/rules.json': template {
     rules+: {
-      originHostname:: 'integration.o.acme.net',
+      originHostname:: 'httpbin.org',
       cpCode:: 585898,
     },
   },
@@ -78,7 +78,7 @@ local template = {
 
   'akamai/property/prod/rules.json': template {
     rules+: {
-      originHostname:: 'prod.o.acme.net',
+      originHostname:: 'httpbin.org',
       cpCode:: 585898,
     },
   },
