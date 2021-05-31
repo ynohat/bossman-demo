@@ -11,7 +11,8 @@ local template = {
   'akamai/property/dev1/rules.json': template {
     rules+: {
       originHostname:: 'httpbin.org',
-      cpCode:: 585898,
+      //cpCode:: 585898,
+      cpCode:: 1,
     },
   },
 

@@ -28,7 +28,7 @@ papi.root {
       saasType: null,
     },
     papi.behavior.cpCode {
-      value: { id: std.toString($.cpCode) },
+      value: { id: $.cpCode },
     },
     papi.behavior.allowPost,
     papi.behavior.allowPut,
