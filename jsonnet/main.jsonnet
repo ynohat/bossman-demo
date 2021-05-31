@@ -12,7 +12,7 @@ local template = {
     rules+: {
       originHostname:: 'httpbin.org',
       //cpCode:: 585898,
-      cpCode:: 2,
+      cpCode:: 3,
     },
   },
 
