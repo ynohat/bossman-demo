@@ -13,6 +13,7 @@ papi.root {
     The behaviors in the Default Rule apply to all requests for the property 
     hostname(s) unless another rule overrides the Default Rule settings.
 
+
     Fun fact: this rule MUST be called 'default' in JSON, otherwise weird things happen.
 
     src: %s
