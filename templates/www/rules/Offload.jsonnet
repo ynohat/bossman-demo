@@ -25,6 +25,7 @@ papi.rule {
     papi.behavior.tieredDistribution,
   ],
   children: [
+    import 'Offload/Demandware-Static.jsonnet',
     import 'Offload/CSS-and-Javascript.jsonnet',
     import 'Offload/Static-objects.jsonnet',
     import 'Offload/Uncacheable-Responses.jsonnet',
