@@ -22,6 +22,7 @@ papi.rule {
       mustRevalidate: false,
       honorPrivateEnabled: true,
       honorMustrevalidateEnabled: true,
+      defaultMaxage: '7d',
     },
     papi.behavior.downstreamCache {
       behavior: 'ALLOW',
