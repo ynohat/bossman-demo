@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "ynohat.akamai-papi-preview",
+    "xrc-inc.jsonnet-formatter",
+    "liamdawson.jsonnet-language",
+    "redhat.vscode-xml"
+  ]
+}
