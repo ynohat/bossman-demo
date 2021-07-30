@@ -4,4 +4,6 @@
 # CIPHER:   aes-256-cbc
 # PASSWORD: bossman-demo
 
-dist/akamai/**/*.json filter=crypt diff=crypt merge=crypt
+# Transcrypt disabled, can be re-enabled via the command line
+# https://github.com/elasticdog/transcrypt
+#dist/akamai/**/*.json filter=crypt diff=crypt merge=crypt

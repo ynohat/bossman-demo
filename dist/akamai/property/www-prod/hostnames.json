@@ -1,4 +1,7 @@
-U2FsdGVkX1//3HRA1vY+oPR0OeZB2Ut6YbExGpQOolHrB8dF8iZJNTsQtnU2sk+P
-nt4S8jbeR83Z5CvP55pp9bFu/rzwzBo4DX4jwoFrh0OymjKDqVH10GUzC69BvKME
-ebuHi7AHxHdyoWLYoCbXknvOAYrXByn3EeKpMbvur55hV0GoFtxQzBK2Mm2+F6uT
-+ioWPSl6YQiD5sLSz99iFQ==
+[
+   {
+      "cnameFrom": "www.bossman-demo.ak.hogg.fr",
+      "cnameTo": "ak.hogg.fr.edgekey.net",
+      "cnameType": "EDGE_HOSTNAME"
+   }
+]
