@@ -18,7 +18,7 @@ papi.rule {
     papi.behavior.caching {
       honorMustrevalidateEnabled: null,
       honorPrivateEnabled: null,
-      ttl: '31d',
+      ttl: '3d',
     },
     papi.behavior.prefreshCache,
     papi.behavior.prefetchable,
