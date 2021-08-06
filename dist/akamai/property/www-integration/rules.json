@@ -357,7 +357,7 @@
                      }
                   ],
                   "children": [ ],
-                  "comments": "Overrides the default caching behavior for images, music, and similar objects \nthat are cached on the edge server.\nBecause these object types are static, the TTL is long.\n\nsrc: templates/www/rules/Offload/Static-objects.jsonnet\n",
+                  "comments": "Overrides the default caching behavior for images, music, and similar objects \nthat are cached on the edge server.\nBecause these object types are static, the TTL is long\n\nsrc: templates/www/rules/Offload/Static-objects.jsonnet\n",
                   "criteria": [
                      {
                         "name": "fileExtension",

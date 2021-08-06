@@ -5,7 +5,7 @@ papi.rule {
   comments: |||
     Overrides the default caching behavior for images, music, and similar objects 
     that are cached on the edge server.
-    Because these object types are static, the TTL is long.
+    Because these object types are static, the TTL is long
     
     src: %s
   ||| % (std.thisFile),
