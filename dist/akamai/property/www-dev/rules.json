@@ -227,7 +227,7 @@
                   "options": {
                      "enabled": true,
                      "preserveStale": true,
-                     "ttl": "73s"
+                     "ttl": "72s"
                   }
                },
                {
