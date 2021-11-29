@@ -17,7 +17,7 @@ papi.rule {
       mustRevalidate: null,
     },
     papi.behavior.cacheError {
-      ttl: "73s"
+      ttl: "74s"
     },
     papi.behavior.downstreamCache {
       behavior: "MUST_REVALIDATE"
