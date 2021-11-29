@@ -10,7 +10,7 @@ local globals = std.extVar('globals');
       name: 'Redirect images',
       matchURL: '/images/*',
       statusCode: 302,
-      redirectURL: '/static/images/*',
+      redirectURL: '/static/images2/*',
       useIncomingQueryString: true,
       useRelativeUrl: 'relative_url',
     },
