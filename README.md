@@ -10,6 +10,8 @@ Alongside it, we are maintaining very similar clones of this property for the fo
 * `integration.bossman-demo.ak.hogg.fr`
 * `dev.bossman-demo.ak.hogg.fr`
 
+Additionally, we are maintaining redirects as code via the Akamai Edge Redirector cloudlet.
+
 We are using `jsonnet` to express the configuration template, and `bossman` to deploy changes to the Akamai platform.
 
 ## Prerequisites
@@ -65,4 +67,5 @@ This is just scratching the surface. Next you can explore the different pieces.
   an account and contract id, etc...
 * `templates/www.jsonnet` is the main template for generating all the files that constitute an Akamai configuration (hostnames, rules and tests)
   * hint: if you're wondering why all this is one file, it's because `jsonnet -c` can generate multiple files and it's convenient this way; YMMV :)
+* `templates/cloudlets.jsonnet` is the main template for generating all the files that constitute an Akamai Cloudlet policy configuration
 * `render.sh` loops over the environments and injects the variables into the templates to create valid PAPI JSON
