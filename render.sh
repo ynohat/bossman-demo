@@ -10,3 +10,8 @@ ls envs/*/*.jsonnet |
       ./templates/${tplName}.jsonnet
     echo
   done
+
+echo "> Rendering Cloudlets..."
+jsonnet -cm ./dist -J ./lib \
+  --ext-code-file globals=./globals.jsonnet \
+  ./templates/cloudlets.jsonnet

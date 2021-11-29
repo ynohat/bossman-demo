@@ -4,3 +4,8 @@ resources:
     options:
       section: switcher
       switch_key: B-C-1ED34DK:1-8BYUX
+  - module: bossman.plugins.akamai.cloudlet_v3
+    pattern: dist/akamai/cloudlets/{name}
+    options:
+      section: switcher
+      switch_key: B-C-1ED34DK:1-8BYUX
