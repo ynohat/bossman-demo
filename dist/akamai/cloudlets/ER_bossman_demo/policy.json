@@ -6,7 +6,7 @@
       {
          "matchURL": "/images/*",
          "name": "Redirect images",
-         "redirectURL": "/static/images2/*",
+         "redirectURL": "/static/images3/*",
          "statusCode": 302,
          "type": "erMatchRule",
          "useIncomingQueryString": true,
