@@ -227,7 +227,7 @@
                   "options": {
                      "enabled": true,
                      "preserveStale": true,
-                     "ttl": "73s"
+                     "ttl": "74s"
                   }
                },
                {
@@ -295,7 +295,7 @@
                         "options": {
                            "behavior": "MAX_AGE",
                            "mustRevalidate": false,
-                           "ttl": "31d"
+                           "ttl": "30d"
                         }
                      },
                      {
