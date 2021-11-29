@@ -295,7 +295,7 @@
                         "options": {
                            "behavior": "MAX_AGE",
                            "mustRevalidate": false,
-                           "ttl": "31d"
+                           "ttl": "30d"
                         }
                      },
                      {
