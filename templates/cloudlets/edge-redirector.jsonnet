@@ -14,5 +14,14 @@ local globals = std.extVar('globals');
       useIncomingQueryString: true,
       useRelativeUrl: 'relative_url',
     },
+    {
+      type: 'erMatchRule',
+      name: 'Redirect images',
+      matchURL: '/css/*',
+      statusCode: 302,
+      redirectURL: '/static/css/*',
+      useIncomingQueryString: true,
+      useRelativeUrl: 'relative_url',
+    },
   ],
 }
