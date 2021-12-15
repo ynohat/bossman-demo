@@ -13,7 +13,7 @@ papi.rule {
     },
   ],
   behaviors: [
-    papi.behavior.cacheId {
+    papi.behaviors.cacheId {
       rule: "INCLUDE_QUERY_PARAMS",
       includeValue: true,
       optional: true,

@@ -15,7 +15,7 @@ papi.rule {
     },
   ],
   behaviors: [
-    papi.behavior.downstreamCache {
+    papi.behaviors.downstreamCache {
       behavior: 'TUNNEL_ORIGIN',
     },
   ],

@@ -10,19 +10,19 @@ papi.rule {
     src: %s
   ||| % (std.thisFile),
   behaviors: [
-    papi.behavior.caching {
+    papi.behaviors.caching {
       behavior: 'NO_STORE',
       honorMustrevalidateEnabled: null,
       honorPrivateEnabled: null,
       mustRevalidate: null,
     },
-    papi.behavior.cacheError {
+    papi.behaviors.cacheError {
       ttl: "73s"
     },
-    papi.behavior.downstreamCache {
+    papi.behaviors.downstreamCache {
       behavior: "MUST_REVALIDATE"
     },
-    papi.behavior.tieredDistribution,
+    papi.behaviors.tieredDistribution,
   ],
   children: [
     import 'Offload/Demandware-Static.jsonnet',

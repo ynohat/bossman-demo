@@ -15,6 +15,6 @@ papi.rule {
     },
   ],
   behaviors: [
-    papi.behavior.adaptiveImageCompression,
+    papi.behaviors.adaptiveImageCompression,
   ],
 }

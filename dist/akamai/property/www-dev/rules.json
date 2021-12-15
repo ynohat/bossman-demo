@@ -1,6 +1,6 @@
 {
-   "contractId": "C-1ED34DY",
-   "groupId": "200128",
+   "contractId": "ctr_C-1ED34DY",
+   "groupId": "grp_200128",
    "productId": "SPM",
    "ruleFormat": "v2020-03-04",
    "rules": {
@@ -138,7 +138,7 @@
                      }
                   ],
                   "children": [ ],
-                  "comments": "Improves load time by applying Adaptive Image Compression (AIC) to all JPEG \nimages. The poorer the connection quality, the more AIC compresses the image \nfiles.\n\nsrc: templates/www/rules/Performance/JPEG-Images.jsonnet\n",
+                  "comments": "Improves load time by applying Adaptive Image Compression (AIC) to all JPEG\nimages. The poorer the connection quality, the more AIC compresses the image\nfiles.  src: templates/www/rules/Performance/JPEG-Images.jsonnet\n",
                   "criteria": [
                      {
                         "name": "fileExtension",
@@ -170,7 +170,7 @@
                      }
                   ],
                   "children": [ ],
-                  "comments": "Compresses content to improve performance of clients with slow connections. \nApplies Last Mile Acceleration to requests when the returned object supports\ngzip compression.\n\nsrc: templates/www/rules/Performance/Compressible-Objects.jsonnet\n",
+                  "comments": "Compresses content to improve performance of clients with slow connections.\nApplies Last Mile Acceleration to requests when the returned object supports\ngzip compression.  src: templates/www/rules/Performance/Compressible-\nObjects.jsonnet\n",
                   "criteria": [
                      {
                         "name": "contentType",
@@ -208,7 +208,7 @@
                   "options": { }
                }
             ],
-            "comments": "Improves the performance of delivering objects to end users. Behaviors in this \nrule are applied to all requests as appropriate.\n\nsrc: templates/www/rules/Performance.jsonnet\n",
+            "comments": "Improves the performance of delivering objects to end users. Behaviors in\nthis  rule are applied to all requests as appropriate.  src:\ntemplates/www/rules/Performance.jsonnet\n",
             "criteria": [ ],
             "criteriaMustSatisfy": "all",
             "name": "Performance",
@@ -271,7 +271,7 @@
                      }
                   ],
                   "children": [ ],
-                  "comments": "eCDN returns an Age header to ensure a correct downstream TTL.\n\nThe best option is to use \"Honor Origin Cache Control\" for content with\na path matching demandware.static, and send the lowest of remaining ttl\nor origin cache control max-age downstream.\n\nsrc: templates/www/rules/Offload/Demandware-Static.jsonnet\n",
+                  "comments": "eCDN returns an Age header to ensure a correct downstream TTL.  The best\noption is to use \"Honor Origin Cache Control\" for content with a path\nmatching demandware.static, and send the lowest of remaining ttl or origin\ncache control max-age downstream.  src:\ntemplates/www/rules/Offload/Demandware-Static.jsonnet\n",
                   "criteria": [
                      {
                         "name": "path",
@@ -313,7 +313,7 @@
                      }
                   ],
                   "children": [ ],
-                  "comments": "Overrides the default caching behavior for CSS and JavaScript objects that are \ncached on the edge server. Because these object types are dynamic, the TTL is \nbrief.\n\nsrc: templates/www/rules/Offload/CSS-and-Javascript.jsonnet\n",
+                  "comments": "Overrides the default caching behavior for CSS and JavaScript objects that\nare  cached on the edge server. Because these object types are dynamic, the\nTTL is  brief.  src: templates/www/rules/Offload/CSS-and-Javascript.jsonnet\n",
                   "criteria": [
                      {
                         "name": "fileExtension",
@@ -357,7 +357,7 @@
                      }
                   ],
                   "children": [ ],
-                  "comments": "Overrides the default caching behavior for images, music, and similar objects \nthat are cached on the edge server.\nBecause these object types are static, the TTL is long.\n\nsrc: templates/www/rules/Offload/Static-objects.jsonnet\n",
+                  "comments": "Overrides the default caching behavior for images, music, and similar\nobjects  that are cached on the edge server. Because these object types are\nstatic, the TTL is long.  src: templates/www/rules/Offload/Static-\nobjects.jsonnet\n",
                   "criteria": [
                      {
                         "name": "fileExtension",
@@ -446,7 +446,7 @@
                      }
                   ],
                   "children": [ ],
-                  "comments": "Overrides the default downstream caching behavior for uncacheable object types. \nInstructs the edge server to pass Cache-Control and/or Expire headers from the\norigin to the client.\n\nsrc: templates/www/rules/Offload/Uncacheable-Responses.jsonnet\n",
+                  "comments": "Overrides the default downstream caching behavior for uncacheable object\ntypes.  Instructs the edge server to pass Cache-Control and/or Expire\nheaders from the origin to the client.  src:\ntemplates/www/rules/Offload/Uncacheable-Responses.jsonnet\n",
                   "criteria": [
                      {
                         "name": "cacheability",
@@ -475,7 +475,7 @@
                      }
                   ],
                   "children": [ ],
-                  "comments": "Include query string parameters abc in cache id.\n\nsrc: templates/www/rules/Offload/Assets-Flex-CacheId.jsonnet\n",
+                  "comments": "Include query string parameters abc in cache id.  src:\ntemplates/www/rules/Offload/Assets-Flex-CacheId.jsonnet\n",
                   "criteria": [
                      {
                         "name": "path",
@@ -493,14 +493,14 @@
                   "options": { }
                }
             ],
-            "comments": "Controls caching, which offloads traffic away from the origin. Most objects \ntypes are not cached.\nHowever, the child rules override this behavior for certain subsets of requests.\n\nsrc: templates/www/rules/Offload.jsonnet\n",
+            "comments": "Controls caching, which offloads traffic away from the origin. Most objects\ntypes are not cached. However, the child rules override this behavior for\ncertain subsets of requests.  src: templates/www/rules/Offload.jsonnet\n",
             "criteria": [ ],
             "criteriaMustSatisfy": "all",
             "name": "Offload",
             "options": { }
          }
       ],
-      "comments": "The behaviors in the Default Rule apply to all requests for the property \nhostname(s) unless another rule overrides the Default Rule settings.\n\n\nFun fact: this rule MUST be called 'default' in JSON, otherwise weird things happen.\n\nsrc: templates/www/rules.jsonnet\n",
+      "comments": "The behaviors in the Default Rule apply to all requests for the property\nhostname(s) unless another rule overrides the Default Rule settings.\n\nFun fact: this rule MUST be called 'default' in JSON, otherwise weird things\nhappen.\n\nsrc: templates/www/rules.jsonnet\n",
       "name": "default",
       "options": {
          "is_secure": false

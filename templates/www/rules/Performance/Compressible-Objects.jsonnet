@@ -15,7 +15,7 @@ papi.rule {
     },
   ],
   behaviors: [
-    papi.behavior.gzipResponse {
+    papi.behaviors.gzipResponse {
       behavior: "ORIGIN_RESPONSE",
       enableCompression: null,
       threshold: null

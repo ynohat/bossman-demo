@@ -15,14 +15,14 @@ papi.rule {
     },
   ],
   behaviors: [
-    papi.behavior.caching {
+    papi.behaviors.caching {
       honorMustrevalidateEnabled: null,
       honorPrivateEnabled: null,
       ttl: '30d',
     },
-    papi.behavior.prefreshCache {
+    papi.behaviors.prefreshCache {
       prefreshval: 80
     },
-    papi.behavior.prefetchable,
+    papi.behaviors.prefetchable,
   ],
 }

@@ -17,14 +17,14 @@ papi.rule {
     },
   ],
   behaviors: [
-    papi.behavior.caching {
+    papi.behaviors.caching {
       behavior: "CACHE_CONTROL",
       mustRevalidate: false,
       honorPrivateEnabled: true,
       honorMustrevalidateEnabled: true,
       defaultTtl: '7d',
     },
-    papi.behavior.downstreamCache {
+    papi.behaviors.downstreamCache {
       behavior: 'ALLOW',
       allowBehavior: 'LESSER',
       sendHeaders: 'CACHE_CONTROL_AND_EXPIRES',

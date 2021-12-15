@@ -14,7 +14,6 @@
   },
   root: {
     local _ = self,
-    is_secure:: error 'is_secure is required',
     // The name of the default rule MUST BE "default", otherwise
     // PAPI throws occassional random errors.
     name: 'default',
@@ -26,21 +25,21 @@
     behaviors: [],
     children: [],
     options: {
-      is_secure: _.is_secure,
+      //is_secure: false,
     },
     variables: [
     ],
   },
-  behavior: {
+  behaviors: {
     adaptiveAcceleration: {
       local _ = self,
       name: 'adaptiveAcceleration',
 
-      source:: 'mPulse',
-      enablePush:: true,
-      enablePreconnect:: true,
-      preloadEnable:: true,
-      enableRo:: true,
+      source:: null,
+      enablePush:: null,
+      enablePreconnect:: null,
+      preloadEnable:: null,
+      enableRo:: null,
 
       options: {
         [name]: _[name]
@@ -52,20 +51,20 @@
       local _ = self,
       name: 'adaptiveImageCompression',
 
-      compressMobile:: true,
-      tier1MobileCompressionMethod:: 'BYPASS',
-      tier1MobileCompressionValue:: 80,
-      tier2MobileCompressionMethod:: 'COMPRESS',
-      tier2MobileCompressionValue:: 60,
-      tier3MobileCompressionMethod:: 'COMPRESS',
-      tier3MobileCompressionValue:: 40,
-      compressStandard:: true,
-      tier1StandardCompressionMethod:: 'BYPASS',
-      tier1StandardCompressionValue:: 80,
-      tier2StandardCompressionMethod:: 'BYPASS',
-      tier2StandardCompressionValue:: 60,
-      tier3StandardCompressionMethod:: 'COMPRESS',
-      tier3StandardCompressionValue:: 40,
+      compressMobile:: null,
+      tier1MobileCompressionMethod:: null,
+      tier1MobileCompressionValue:: null,
+      tier2MobileCompressionMethod:: null,
+      tier2MobileCompressionValue:: null,
+      tier3MobileCompressionMethod:: null,
+      tier3MobileCompressionValue:: null,
+      compressStandard:: null,
+      tier1StandardCompressionMethod:: null,
+      tier1StandardCompressionValue:: null,
+      tier2StandardCompressionMethod:: null,
+      tier2StandardCompressionValue:: null,
+      tier3StandardCompressionMethod:: null,
+      tier3StandardCompressionValue:: null,
 
       options: {
         [name]: _[name]
@@ -90,7 +89,7 @@
       local _ = self,
       name: 'akamaizer',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -104,10 +103,10 @@
 
       matchHostname:: null,
       replacementHostname:: null,
-      scope:: 'URL_ATTRIBUTE',
-      tagsAttribute:: 'IMG_SRC',
-      replaceAll:: false,
-      includeTagsAttribute:: true,
+      scope:: null,
+      tagsAttribute:: null,
+      replaceAll:: null,
+      includeTagsAttribute:: null,
 
       options: {
         [name]: _[name]
@@ -119,7 +118,7 @@
       local _ = self,
       name: 'allHttpInCacheHierarchy',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -131,9 +130,9 @@
       local _ = self,
       name: 'allowCloudletsOrigins',
 
-      enabled:: true,
-      honorBaseDirectory:: false,
-      purgeOriginQueryParameter:: 'originId',
+      enabled:: null,
+      honorBaseDirectory:: null,
+      purgeOriginQueryParameter:: null,
 
       options: {
         [name]: _[name]
@@ -145,8 +144,8 @@
       local _ = self,
       name: 'allowDelete',
 
-      enabled:: true,
-      allowBody:: false,
+      enabled:: null,
+      allowBody:: null,
 
       options: {
         [name]: _[name]
@@ -158,7 +157,7 @@
       local _ = self,
       name: 'allowOptions',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -170,7 +169,7 @@
       local _ = self,
       name: 'allowPatch',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -182,8 +181,8 @@
       local _ = self,
       name: 'allowPost',
 
-      enabled:: true,
-      allowWithoutContentLength:: false,
+      enabled:: null,
+      allowWithoutContentLength:: null,
 
       options: {
         [name]: _[name]
@@ -195,7 +194,7 @@
       local _ = self,
       name: 'allowPut',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -207,7 +206,7 @@
       local _ = self,
       name: 'allowTransferEncoding',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -219,16 +218,16 @@
       local _ = self,
       name: 'apiPrioritization',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
       label:: null,
-      useThrottledCpCode:: false,
+      useThrottledCpCode:: null,
       throttledCpCode:: null,
-      useThrottledStatusCode:: false,
-      throttledStatusCode:: 200,
+      useThrottledStatusCode:: null,
+      throttledStatusCode:: null,
       netStorage:: null,
       netStoragePath:: null,
-      alternateResponseCacheTtl:: 5,
+      alternateResponseCacheTtl:: null,
 
       options: {
         [name]: _[name]
@@ -240,28 +239,28 @@
       local _ = self,
       name: 'applicationLoadBalancer',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
       label:: null,
-      stickinessCookieType:: 'ON_BROWSER_CLOSE',
+      stickinessCookieType:: null,
       stickinessExpirationDate:: null,
-      stickinessDuration:: '300s',
-      stickinessRefresh:: false,
+      stickinessDuration:: null,
+      stickinessRefresh:: null,
       originCookieName:: null,
-      specifyStickinessCookieDomain:: false,
+      specifyStickinessCookieDomain:: null,
       stickinessCookieDomain:: null,
-      stickinessCookieAutomaticSalt:: true,
+      stickinessCookieAutomaticSalt:: null,
       stickinessCookieSalt:: null,
-      stickinessCookieSetHttpOnlyFlag:: false,
-      stickinessCookieSetSecureFlag:: false,
+      stickinessCookieSetHttpOnlyFlag:: null,
+      stickinessCookieSetSecureFlag:: null,
       allDownNetStorage:: null,
       allDownNetStorageFile:: null,
       allDownStatusCode:: null,
-      failoverStatusCodes:: ['500', '501', '502', '503', '504', '505', '506', '507', '508', '509'],
-      failoverMode:: 'AUTOMATIC',
+      failoverStatusCodes:: null,
+      failoverMode:: null,
       failoverOriginMap:: null,
-      failoverAttemptsThreshold:: 5,
-      allowCachePrefresh:: true,
+      failoverAttemptsThreshold:: null,
+      allowCachePrefresh:: null,
 
       options: {
         [name]: _[name]
@@ -273,21 +272,21 @@
       local _ = self,
       name: 'audienceSegmentation',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
       label:: null,
-      segmentTrackingMethod:: 'NONE',
+      segmentTrackingMethod:: null,
       segmentTrackingQueryParam:: null,
       segmentTrackingCookieName:: null,
       segmentTrackingCustomHeader:: null,
-      populationCookieType:: 'ON_BROWSER_CLOSE',
-      populationDuration:: '5m',
-      populationRefresh:: true,
-      specifyPopulationCookieDomain:: false,
+      populationCookieType:: null,
+      populationDuration:: null,
+      populationRefresh:: null,
+      specifyPopulationCookieDomain:: null,
       populationCookieDomain:: null,
-      populationCookieAutomaticSalt:: true,
+      populationCookieAutomaticSalt:: null,
       populationCookieSalt:: null,
-      populationCookieIncludeRuleName:: false,
+      populationCookieIncludeRuleName:: null,
 
       options: {
         [name]: _[name]
@@ -322,7 +321,7 @@
       local _ = self,
       name: 'breakConnection',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -334,7 +333,7 @@
       local _ = self,
       name: 'brotli',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -346,9 +345,9 @@
       local _ = self,
       name: 'cacheError',
 
-      enabled:: true,
-      ttl:: '10s',
-      preserveStale:: true,
+      enabled:: null,
+      ttl:: null,
+      preserveStale:: null,
 
       options: {
         [name]: _[name]
@@ -360,9 +359,9 @@
       local _ = self,
       name: 'cacheId',
 
-      rule:: 'INCLUDE_QUERY_PARAMS',
-      includeValue:: true,
-      optional:: true,
+      rule:: null,
+      includeValue:: null,
+      optional:: null,
       elements:: null,
       variableName:: null,
 
@@ -376,7 +375,7 @@
       local _ = self,
       name: 'cacheKeyIgnoreCase',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -388,9 +387,9 @@
       local _ = self,
       name: 'cacheKeyQueryParams',
 
-      behavior:: 'INCLUDE_ALL_PRESERVE_ORDER',
+      behavior:: null,
       parameters:: null,
-      exactMatch:: false,
+      exactMatch:: null,
 
       options: {
         [name]: _[name]
@@ -402,8 +401,8 @@
       local _ = self,
       name: 'cachePost',
 
-      enabled:: true,
-      useBody:: 'IGNORE',
+      enabled:: null,
+      useBody:: null,
 
       options: {
         [name]: _[name]
@@ -415,7 +414,7 @@
       local _ = self,
       name: 'cacheRedirect',
 
-      enabled:: 'true',
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -427,7 +426,7 @@
       local _ = self,
       name: 'cacheTagVisible',
 
-      behavior:: 'NEVER',
+      behavior:: null,
 
       options: {
         [name]: _[name]
@@ -439,12 +438,12 @@
       local _ = self,
       name: 'caching',
 
-      behavior:: 'MAX_AGE',
-      mustRevalidate:: false,
+      behavior:: null,
+      mustRevalidate:: null,
       ttl:: null,
       defaultTtl:: null,
-      honorPrivateEnabled:: false,
-      honorMustrevalidateEnabled:: false,
+      honorPrivateEnabled:: null,
+      honorMustrevalidateEnabled:: null,
 
       options: {
         [name]: _[name]
@@ -456,7 +455,7 @@
       local _ = self,
       name: 'centralAuthorization',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -468,9 +467,9 @@
       local _ = self,
       name: 'chaseRedirects',
 
-      enabled:: true,
-      limit:: '4',
-      serve404:: true,
+      enabled:: null,
+      limit:: null,
+      serve404:: null,
 
       options: {
         [name]: _[name]
@@ -482,10 +481,10 @@
       local _ = self,
       name: 'constructResponse',
 
-      enabled:: true,
+      enabled:: null,
       body:: null,
-      responseCode:: 200,
-      forceEviction:: false,
+      responseCode:: null,
+      forceEviction:: null,
 
       options: {
         [name]: _[name]
@@ -521,12 +520,12 @@
       local _ = self,
       name: 'datastream',
 
-      streamType:: 'BEACON',
-      enabled:: true,
+      streamType:: null,
+      enabled:: null,
       datastreamIds:: null,
-      logEnabled:: false,
+      logEnabled:: null,
       logStreamName:: null,
-      samplingPercentage:: 100,
+      samplingPercentage:: null,
 
       options: {
         [name]: _[name]
@@ -538,8 +537,8 @@
       local _ = self,
       name: 'denyAccess',
 
-      reason:: 'default-deny-reason',
-      enabled:: false,
+      reason:: null,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -575,8 +574,8 @@
       local _ = self,
       name: 'dnsAsyncRefresh',
 
-      enabled:: true,
-      timeout:: '2h',
+      enabled:: null,
+      timeout:: null,
 
       options: {
         [name]: _[name]
@@ -588,9 +587,9 @@
       local _ = self,
       name: 'dnsPrefresh',
 
-      enabled:: true,
-      delay:: '5m',
-      timeout:: '2h',
+      enabled:: null,
+      delay:: null,
+      timeout:: null,
 
       options: {
         [name]: _[name]
@@ -602,11 +601,11 @@
       local _ = self,
       name: 'downstreamCache',
 
-      behavior:: 'ALLOW',
-      allowBehavior:: 'LESSER',
+      behavior:: null,
+      allowBehavior:: null,
       ttl:: null,
-      sendHeaders:: 'CACHE_CONTROL_AND_EXPIRES',
-      sendPrivate:: false,
+      sendHeaders:: null,
+      sendPrivate:: null,
 
       options: {
         [name]: _[name]
@@ -618,15 +617,15 @@
       local _ = self,
       name: 'edgeConnect',
 
-      enabled:: true,
-      apiConnector:: 'DEFAULT',
-      apiDataElements:: 'HTTP',
+      enabled:: null,
+      apiConnector:: null,
+      apiDataElements:: null,
       destinationHostname:: null,
       destinationPath:: null,
-      overrideAggregateSettings:: false,
-      aggregateTime:: '15s',
-      aggregateLines:: '2000',
-      aggregateSize:: '1000KB',
+      overrideAggregateSettings:: null,
+      aggregateTime:: null,
+      aggregateLines:: null,
+      aggregateSize:: null,
 
       options: {
         [name]: _[name]
@@ -638,11 +637,11 @@
       local _ = self,
       name: 'edgeImageConversion',
 
-      enabled:: true,
-      failover:: true,
-      usePolicy:: false,
+      enabled:: null,
+      failover:: null,
+      usePolicy:: null,
       policies:: null,
-      policyResponses:: 400,
+      policyResponses:: null,
 
       options: {
         [name]: _[name]
@@ -671,7 +670,7 @@
       description:: null,
       hostname:: null,
       cookieName:: null,
-      enableFailover:: false,
+      enableFailover:: null,
       ip:: null,
       failoverRules:: null,
 
@@ -688,7 +687,7 @@
       id:: null,
       description:: null,
       hostname:: null,
-      enableSessionPersistence:: false,
+      enableSessionPersistence:: null,
       cookieName:: null,
 
       options: {
@@ -701,10 +700,10 @@
       local _ = self,
       name: 'edgeOriginAuthorization',
 
-      enabled:: true,
-      cookieName:: 'AKA_ID',
-      value:: '',
-      domain:: '',
+      enabled:: null,
+      cookieName:: null,
+      value:: null,
+      domain:: null,
 
       options: {
         [name]: _[name]
@@ -716,7 +715,7 @@
       local _ = self,
       name: 'edgeRedirector',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
 
       options: {
@@ -729,7 +728,7 @@
       local _ = self,
       name: 'edgeScape',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -741,13 +740,13 @@
       local _ = self,
       name: 'edgeSideIncludes',
 
-      enabled:: true,
-      enableViaHttp:: false,
-      passSetCookie:: false,
-      passClientIp:: false,
-      i18nStatus:: false,
+      enabled:: null,
+      enableViaHttp:: null,
+      passSetCookie:: null,
+      passClientIp:: null,
+      i18nStatus:: null,
       i18nCharset:: null,
-      detectInjection:: false,
+      detectInjection:: null,
 
       options: {
         [name]: _[name]
@@ -759,7 +758,7 @@
       local _ = self,
       name: 'edgeWorker',
 
-      enabled:: true,
+      enabled:: null,
       edgeWorkerId:: null,
 
       options: {
@@ -779,41 +778,71 @@
         if std.objectHasAll(_, name) && _[name] != null
       },
     },
+    enhancedProxyDetection: {
+      local _ = self,
+      name: 'enhancedProxyDetection',
+
+      enabled:: null,
+      enableConfigurationMode:: null,
+      bestPracticeAction:: null,
+      bestPracticeRedirecturl:: null,
+      detectAnonymousVpn:: null,
+      detectAnonymousVpnAction:: null,
+      detectAnonymousVpnRedirecturl:: null,
+      detectPublicProxy:: null,
+      detectPublicProxyAction:: null,
+      detectPublicProxyRedirecturl:: null,
+      detectTorExitNode:: null,
+      detectTorExitNodeAction:: null,
+      detectTorExitNodeRedirecturl:: null,
+      detectSmartDNSProxy:: null,
+      detectSmartDNSProxyAction:: null,
+      detectSmartDNSProxyRedirecturl:: null,
+      detectVpnDataCenter:: null,
+      detectVpnDataCenterAction:: null,
+      detectVpnDataCenterRedirecturl:: null,
+
+      options: {
+        [name]: _[name]
+        for name in ['enabled', 'enableConfigurationMode', 'bestPracticeAction', 'bestPracticeRedirecturl', 'detectAnonymousVpn', 'detectAnonymousVpnAction', 'detectAnonymousVpnRedirecturl', 'detectPublicProxy', 'detectPublicProxyAction', 'detectPublicProxyRedirecturl', 'detectTorExitNode', 'detectTorExitNodeAction', 'detectTorExitNodeRedirecturl', 'detectSmartDNSProxy', 'detectSmartDNSProxyAction', 'detectSmartDNSProxyRedirecturl', 'detectVpnDataCenter', 'detectVpnDataCenterAction', 'detectVpnDataCenterRedirecturl']
+        if std.objectHasAll(_, name) && _[name] != null
+      },
+    },
     failAction: {
       local _ = self,
       name: 'failAction',
 
-      enabled:: true,
-      actionType:: 'REDIRECT',
-      saasType:: 'HOSTNAME',
-      saasCnameEnabled:: false,
-      saasCnameLevel:: 1,
+      enabled:: null,
+      actionType:: null,
+      saasType:: null,
+      saasCnameEnabled:: null,
+      saasCnameLevel:: null,
       saasCookie:: null,
       saasQueryString:: null,
       saasRegex:: null,
       saasReplace:: null,
       saasSuffix:: null,
-      dynamicMethod:: 'SERVE_301',
-      dynamicCustomPath:: true,
+      dynamicMethod:: null,
+      dynamicCustomPath:: null,
       dynamicPath:: null,
-      redirectHostnameType:: 'ALTERNATE',
+      redirectHostnameType:: null,
       redirectHostname:: null,
-      redirectCustomPath:: true,
+      redirectCustomPath:: null,
       redirectPath:: null,
-      redirectMethod:: 302,
+      redirectMethod:: null,
       contentHostname:: null,
-      contentCustomPath:: true,
+      contentCustomPath:: null,
       contentPath:: null,
       netStorageHostname:: null,
       netStoragePath:: null,
       cexHostname:: null,
-      cexCustomPath:: true,
+      cexCustomPath:: null,
       cexPath:: null,
       cpCode:: null,
-      statusCode:: 200,
-      preserveQueryString:: true,
-      modifyProtocol:: false,
-      protocol:: 'HTTP',
+      statusCode:: null,
+      preserveQueryString:: null,
+      modifyProtocol:: null,
+      protocol:: null,
 
       options: {
         [name]: _[name]
@@ -825,7 +854,7 @@
       local _ = self,
       name: 'failoverBotManagerFeatureCompatibility',
 
-      compatibility:: false,
+      compatibility:: null,
 
       options: {
         [name]: _[name]
@@ -837,7 +866,7 @@
       local _ = self,
       name: 'fastInvalidate',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -849,10 +878,10 @@
       local _ = self,
       name: 'firstPartyMarketing',
 
-      enabled:: true,
-      javaScriptInsertionRule:: 'ALWAYS',
+      enabled:: null,
+      javaScriptInsertionRule:: null,
       cloudletPolicy:: null,
-      mediaMathPrefix:: '/dcpp',
+      mediaMathPrefix:: null,
 
       options: {
         [name]: _[name]
@@ -864,10 +893,10 @@
       local _ = self,
       name: 'firstPartyMarketingPlus',
 
-      enabled:: true,
-      javaScriptInsertionRule:: 'ALWAYS',
+      enabled:: null,
+      javaScriptInsertionRule:: null,
       cloudletPolicy:: null,
-      mediaMathPrefix:: '/dcpp',
+      mediaMathPrefix:: null,
 
       options: {
         [name]: _[name]
@@ -879,7 +908,7 @@
       local _ = self,
       name: 'forwardRewrite',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
 
       options: {
@@ -892,7 +921,7 @@
       local _ = self,
       name: 'frontEndOptimization',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -904,8 +933,8 @@
       local _ = self,
       name: 'globalRequestNumber',
 
-      outputOption:: 'RESPONSE_HEADER',
-      headerName:: 'Akamai-GRN',
+      outputOption:: null,
+      headerName:: null,
       variableName:: null,
 
       options: {
@@ -918,11 +947,11 @@
       local _ = self,
       name: 'graphqlCaching',
 
-      enabled:: true,
-      cacheResponsesWithErrors:: false,
-      postRequestProcessingErrorHandling:: 'NO_STORE',
-      operationsUrlQueryParameterName:: 'query',
-      operationsJsonBodyParameterName:: 'query',
+      enabled:: null,
+      cacheResponsesWithErrors:: null,
+      postRequestProcessingErrorHandling:: null,
+      operationsUrlQueryParameterName:: null,
+      operationsJsonBodyParameterName:: null,
 
       options: {
         [name]: _[name]
@@ -934,9 +963,9 @@
       local _ = self,
       name: 'gzipResponse',
 
-      behavior:: 'ORIGIN_RESPONSE',
-      enableCompression:: false,
-      threshold:: 25,
+      behavior:: null,
+      enableCompression:: null,
+      threshold:: null,
 
       options: {
         [name]: _[name]
@@ -948,9 +977,9 @@
       local _ = self,
       name: 'healthDetection',
 
-      retryCount:: 3,
-      retryInterval:: '60s',
-      maximumReconnects:: 3,
+      retryCount:: null,
+      retryInterval:: null,
+      maximumReconnects:: null,
 
       options: {
         [name]: _[name]
@@ -973,12 +1002,12 @@
       local _ = self,
       name: 'httpStrictTransportSecurity',
 
-      enable:: true,
-      maxAge:: 'ONE_DAY',
-      includeSubDomains:: false,
-      preload:: false,
-      redirect:: false,
-      redirectStatusCode:: 301,
+      enable:: null,
+      maxAge:: null,
+      includeSubDomains:: null,
+      preload:: null,
+      redirect:: null,
+      redirectStatusCode:: null,
 
       options: {
         [name]: _[name]
@@ -990,10 +1019,10 @@
       local _ = self,
       name: 'imOverride',
 
-      override:: 'POLICY',
-      typesel:: 'VALUE',
+      override:: null,
+      typesel:: null,
       formatvar:: null,
-      format:: 'CHROME',
+      format:: null,
       dprvar:: null,
       dpr:: null,
       widthvar:: null,
@@ -1013,15 +1042,15 @@
       local _ = self,
       name: 'imageManager',
 
-      enabled:: true,
-      resize:: false,
-      applyBestFileType:: true,
-      superCacheRegion:: 'US',
+      enabled:: null,
+      resize:: null,
+      applyBestFileType:: null,
+      superCacheRegion:: null,
       cpCodeOriginal:: null,
       cpCodeTransformed:: null,
-      advanced:: false,
-      policyToken:: 'fresh',
-      policyTokenDefault:: 'default',
+      advanced:: null,
+      policyToken:: null,
+      policyTokenDefault:: null,
 
       options: {
         [name]: _[name]
@@ -1033,15 +1062,15 @@
       local _ = self,
       name: 'imageManagerVideo',
 
-      enabled:: true,
-      resize:: false,
-      applyBestFileType:: true,
-      superCacheRegion:: 'US',
+      enabled:: null,
+      resize:: null,
+      applyBestFileType:: null,
+      superCacheRegion:: null,
       cpCodeOriginal:: null,
       cpCodeTransformed:: null,
-      advanced:: false,
-      policyToken:: 'freshVideo',
-      policyTokenDefault:: 'freshVideo',
+      advanced:: null,
+      policyToken:: null,
+      policyTokenDefault:: null,
 
       options: {
         [name]: _[name]
@@ -1053,29 +1082,29 @@
       local _ = self,
       name: 'inputValidation',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
       label:: null,
-      userIdentificationByCookie:: false,
+      userIdentificationByCookie:: null,
       userIdentificationKeyCookie:: null,
-      userIdentificationByIp:: true,
-      userIdentificationByHeaders:: false,
+      userIdentificationByIp:: null,
+      userIdentificationByHeaders:: null,
       userIdentificationKeyHeaders:: null,
-      userIdentificationByParams:: true,
+      userIdentificationByParams:: null,
       userIdentificationKeyParams:: null,
-      allowLargePostBody:: false,
-      resetOnValid:: true,
-      validateOnOriginWith:: 'DISABLED',
-      validateOnOriginHeaderName:: 'X-Validation-Failure',
-      validateOnOriginHeaderValue:: 'true',
-      validateOnOriginResponseCode:: 200,
+      allowLargePostBody:: null,
+      resetOnValid:: null,
+      validateOnOriginWith:: null,
+      validateOnOriginHeaderName:: null,
+      validateOnOriginHeaderValue:: null,
+      validateOnOriginResponseCode:: null,
       failure302Uri:: null,
-      penaltyThreshold:: 3,
-      penaltyAction:: 'BLANK_403',
+      penaltyThreshold:: null,
+      penaltyAction:: null,
       penalty302Uri:: null,
       penaltyNetStorage:: null,
       penalty403NetStoragePath:: null,
-      penaltyBrandedDenyCacheTtl:: 5,
+      penaltyBrandedDenyCacheTtl:: null,
 
       options: {
         [name]: _[name]
@@ -1087,11 +1116,11 @@
       local _ = self,
       name: 'instant',
 
-      prefetchCacheable:: false,
-      prefetchNoStore:: false,
+      prefetchCacheable:: null,
+      prefetchNoStore:: null,
       prefetchNoStoreExtensions:: null,
-      prefetchHtml:: false,
-      customLinkRelations:: 'Akamai-prefetch',
+      prefetchHtml:: null,
+      customLinkRelations:: null,
 
       options: {
         [name]: _[name]
@@ -1103,7 +1132,7 @@
       local _ = self,
       name: 'instantConfig',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1115,11 +1144,11 @@
       local _ = self,
       name: 'largeFileOptimization',
 
-      enabled:: true,
-      enablePartialObjectCaching:: 'PARTIAL_OBJECT_CACHING',
-      minimumSize:: '100MB',
-      maximumSize:: '16GB',
-      useVersioning:: true,
+      enabled:: null,
+      enablePartialObjectCaching:: null,
+      minimumSize:: null,
+      maximumSize:: null,
+      useVersioning:: null,
 
       options: {
         [name]: _[name]
@@ -1131,11 +1160,11 @@
       local _ = self,
       name: 'mPulse',
 
-      enabled:: true,
-      requirePci:: false,
+      enabled:: null,
+      requirePci:: null,
       apiKey:: null,
       bufferSize:: null,
-      configOverride:: '',
+      configOverride:: null,
 
       options: {
         [name]: _[name]
@@ -1159,8 +1188,8 @@
       local _ = self,
       name: 'mobileSdkPerformance',
 
-      enabled:: true,
-      secondaryMultipathToOrigin:: false,
+      enabled:: null,
+      secondaryMultipathToOrigin:: null,
 
       options: {
         [name]: _[name]
@@ -1172,15 +1201,15 @@
       local _ = self,
       name: 'modifyIncomingRequestHeader',
 
-      action:: 'ADD',
-      standardAddHeaderName:: 'ACCEPT_ENCODING',
-      standardDeleteHeaderName:: 'IF_MODIFIED_SINCE',
-      standardModifyHeaderName:: 'ACCEPT_ENCODING',
-      standardPassHeaderName:: 'ACCEPT_ENCODING',
+      action:: null,
+      standardAddHeaderName:: null,
+      standardDeleteHeaderName:: null,
+      standardModifyHeaderName:: null,
+      standardPassHeaderName:: null,
       customHeaderName:: null,
       headerValue:: null,
       newHeaderValue:: null,
-      avoidDuplicateHeaders:: false,
+      avoidDuplicateHeaders:: null,
 
       options: {
         [name]: _[name]
@@ -1192,15 +1221,15 @@
       local _ = self,
       name: 'modifyIncomingResponseHeader',
 
-      action:: 'ADD',
-      standardAddHeaderName:: 'CACHE_CONTROL',
-      standardDeleteHeaderName:: 'CACHE_CONTROL',
-      standardModifyHeaderName:: 'CACHE_CONTROL',
-      standardPassHeaderName:: 'CACHE_CONTROL',
+      action:: null,
+      standardAddHeaderName:: null,
+      standardDeleteHeaderName:: null,
+      standardModifyHeaderName:: null,
+      standardPassHeaderName:: null,
       customHeaderName:: null,
       headerValue:: null,
       newHeaderValue:: null,
-      avoidDuplicateHeaders:: false,
+      avoidDuplicateHeaders:: null,
 
       options: {
         [name]: _[name]
@@ -1212,17 +1241,17 @@
       local _ = self,
       name: 'modifyOutgoingRequestHeader',
 
-      action:: 'ADD',
-      standardAddHeaderName:: 'USER_AGENT',
-      standardDeleteHeaderName:: 'PRAGMA',
-      standardModifyHeaderName:: 'USER_AGENT',
+      action:: null,
+      standardAddHeaderName:: null,
+      standardDeleteHeaderName:: null,
+      standardModifyHeaderName:: null,
       customHeaderName:: null,
       headerValue:: null,
       newHeaderValue:: null,
       regexHeaderMatch:: null,
       regexHeaderReplace:: null,
-      matchMultiple:: false,
-      avoidDuplicateHeaders:: false,
+      matchMultiple:: null,
+      avoidDuplicateHeaders:: null,
 
       options: {
         [name]: _[name]
@@ -1234,17 +1263,17 @@
       local _ = self,
       name: 'modifyOutgoingResponseHeader',
 
-      action:: 'ADD',
-      standardAddHeaderName:: 'CACHE_CONTROL',
-      standardDeleteHeaderName:: 'CACHE_CONTROL',
-      standardModifyHeaderName:: 'CACHE_CONTROL',
+      action:: null,
+      standardAddHeaderName:: null,
+      standardDeleteHeaderName:: null,
+      standardModifyHeaderName:: null,
       customHeaderName:: null,
       headerValue:: null,
       newHeaderValue:: null,
       regexHeaderMatch:: null,
       regexHeaderReplace:: null,
-      matchMultiple:: false,
-      avoidDuplicateHeaders:: false,
+      matchMultiple:: null,
+      avoidDuplicateHeaders:: null,
 
       options: {
         [name]: _[name]
@@ -1256,36 +1285,36 @@
       local _ = self,
       name: 'origin',
 
-      originType:: 'CUSTOMER',
+      originType:: null,
       netStorage:: null,
       originId:: null,
       hostname:: null,
       mslorigin:: null,
-      saasType:: 'HOSTNAME',
-      saasCnameEnabled:: false,
-      saasCnameLevel:: 1,
+      saasType:: null,
+      saasCnameEnabled:: null,
+      saasCnameLevel:: null,
       saasCookie:: null,
       saasQueryString:: null,
       saasRegex:: null,
       saasReplace:: null,
       saasSuffix:: null,
-      forwardHostHeader:: 'REQUEST_HOST_HEADER',
+      forwardHostHeader:: null,
       customForwardHostHeader:: null,
-      cacheKeyHostname:: 'ORIGIN_HOSTNAME',
-      useUniqueCacheKey:: false,
-      compress:: true,
-      enableTrueClientIp:: false,
-      trueClientIpHeader:: 'True-Client-IP',
-      trueClientIpClientSetting:: false,
-      verificationMode:: 'PLATFORM_SETTINGS',
-      originSni:: true,
-      customValidCnValues:: ['{{Origin Hostname}}', '{{Forward Host Header}}'],
-      originCertsToHonor:: 'STANDARD_CERTIFICATE_AUTHORITIES',
-      standardCertificateAuthorities:: ['akamai-permissive'],
-      customCertificateAuthorities:: [],
-      customCertificates:: [],
-      httpPort:: 80,
-      httpsPort:: 443,
+      cacheKeyHostname:: null,
+      useUniqueCacheKey:: null,
+      compress:: null,
+      enableTrueClientIp:: null,
+      trueClientIpHeader:: null,
+      trueClientIpClientSetting:: null,
+      verificationMode:: null,
+      originSni:: null,
+      customValidCnValues:: null,
+      originCertsToHonor:: null,
+      standardCertificateAuthorities:: null,
+      customCertificateAuthorities:: null,
+      customCertificates:: null,
+      httpPort:: null,
+      httpsPort:: null,
 
       options: {
         [name]: _[name]
@@ -1297,11 +1326,11 @@
       local _ = self,
       name: 'originCharacteristics',
 
-      country:: 'UNKNOWN',
+      country:: null,
       directConnectGeo:: null,
-      authenticationMethod:: 'AUTOMATIC',
-      encodingVersion:: 5,
-      useCustomSignString:: false,
+      authenticationMethod:: null,
+      encodingVersion:: null,
+      useCustomSignString:: null,
       customSignString:: null,
       secretKey:: null,
       nonce:: null,
@@ -1326,8 +1355,8 @@
       local _ = self,
       name: 'persistentClientConnection',
 
-      enabled:: true,
-      timeout:: '500s',
+      enabled:: null,
+      timeout:: null,
 
       options: {
         [name]: _[name]
@@ -1339,8 +1368,8 @@
       local _ = self,
       name: 'persistentConnection',
 
-      enabled:: true,
-      timeout:: '5m',
+      enabled:: null,
+      timeout:: null,
 
       options: {
         [name]: _[name]
@@ -1352,7 +1381,7 @@
       local _ = self,
       name: 'personallyIdentifiableInformation',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1364,16 +1393,16 @@
       local _ = self,
       name: 'phasedRelease',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
       label:: null,
-      populationCookieType:: 'NONE',
+      populationCookieType:: null,
       populationExpirationDate:: null,
-      populationDuration:: '300s',
-      populationRefresh:: false,
-      failoverEnabled:: false,
+      populationDuration:: null,
+      populationRefresh:: null,
+      failoverEnabled:: null,
       failoverResponseCode:: null,
-      failoverDuration:: 30,
+      failoverDuration:: null,
 
       options: {
         [name]: _[name]
@@ -1397,8 +1426,8 @@
       local _ = self,
       name: 'predictivePrefetching',
 
-      enabled:: true,
-      accuracyTarget:: 'MEDIUM',
+      enabled:: null,
+      accuracyTarget:: null,
 
       options: {
         [name]: _[name]
@@ -1410,7 +1439,7 @@
       local _ = self,
       name: 'prefetch',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1422,7 +1451,7 @@
       local _ = self,
       name: 'prefetchable',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1434,8 +1463,8 @@
       local _ = self,
       name: 'prefreshCache',
 
-      enabled:: true,
-      prefreshval:: 90,
+      enabled:: null,
+      prefreshval:: null,
 
       options: {
         [name]: _[name]
@@ -1447,8 +1476,8 @@
       local _ = self,
       name: 'quicBeta',
 
-      enabled:: true,
-      quicOfferPercentage:: 50,
+      enabled:: null,
+      quicOfferPercentage:: null,
 
       options: {
         [name]: _[name]
@@ -1460,7 +1489,7 @@
       local _ = self,
       name: 'rapid',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1472,7 +1501,7 @@
       local _ = self,
       name: 'readTimeout',
 
-      value:: '120s',
+      value:: null,
 
       options: {
         [name]: _[name]
@@ -1484,7 +1513,7 @@
       local _ = self,
       name: 'realUserMonitoring',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1496,19 +1525,19 @@
       local _ = self,
       name: 'redirect',
 
-      mobileDefaultChoice:: 'DEFAULT',
-      destinationProtocol:: 'SAME_AS_REQUEST',
-      destinationHostname:: 'SAME_AS_REQUEST',
+      mobileDefaultChoice:: null,
+      destinationProtocol:: null,
+      destinationHostname:: null,
       destinationHostSubdomain:: null,
       destinationHostSibling:: null,
       destinationHostnameOther:: null,
-      destinationPath:: 'OTHER',
+      destinationPath:: null,
       destinationPathPrefix:: null,
-      destinationPathSuffixStatus:: 'NO_SUFFIX',
+      destinationPathSuffixStatus:: null,
       destinationPathSuffix:: null,
       destinationPathOther:: null,
-      queryString:: 'APPEND',
-      responseCode:: 302,
+      queryString:: null,
+      responseCode:: null,
 
       options: {
         [name]: _[name]
@@ -1520,9 +1549,9 @@
       local _ = self,
       name: 'redirectplus',
 
-      enabled:: true,
-      destination:: '{{builtin.AK_SCHEME}}://{{builtin.AK_HOST}}{{builtin.AK_PATH}}',
-      responseCode:: 302,
+      enabled:: null,
+      destination:: null,
+      responseCode:: null,
 
       options: {
         [name]: _[name]
@@ -1534,10 +1563,10 @@
       local _ = self,
       name: 'refererChecking',
 
-      enabled:: true,
-      strict:: false,
+      enabled:: null,
+      strict:: null,
       domains:: null,
-      allowChildren:: true,
+      allowChildren:: null,
 
       options: {
         [name]: _[name]
@@ -1561,7 +1590,7 @@
       local _ = self,
       name: 'removeVary',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1573,14 +1602,14 @@
       local _ = self,
       name: 'report',
 
-      logHost:: true,
-      logReferer:: false,
-      logUserAgent:: false,
-      logAcceptLanguage:: false,
-      logCookies:: 'OFF',
+      logHost:: null,
+      logReferer:: null,
+      logUserAgent:: null,
+      logAcceptLanguage:: null,
+      logCookies:: null,
       cookies:: null,
-      logCustomLogField:: false,
-      customLogField:: '',
+      logCustomLogField:: null,
+      customLogField:: null,
 
       options: {
         [name]: _[name]
@@ -1592,14 +1621,14 @@
       local _ = self,
       name: 'requestControl',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
-      enableBranded403:: false,
-      branded403StatusCode:: 403,
+      enableBranded403:: null,
+      branded403StatusCode:: null,
       netStorage:: null,
       branded403File:: null,
       branded403Url:: null,
-      brandedDenyCacheTtl:: 5,
+      brandedDenyCacheTtl:: null,
 
       options: {
         [name]: _[name]
@@ -1611,7 +1640,7 @@
       local _ = self,
       name: 'resourceOptimizer',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1623,8 +1652,8 @@
       local _ = self,
       name: 'resourceOptimizerExtendedCompatibility',
 
-      enabled:: true,
-      enableAllFeatures:: true,
+      enabled:: null,
+      enableAllFeatures:: null,
 
       options: {
         [name]: _[name]
@@ -1636,8 +1665,8 @@
       local _ = self,
       name: 'responseCode',
 
-      statusCode:: '200',
-      override206:: false,
+      statusCode:: null,
+      override206:: null,
 
       options: {
         [name]: _[name]
@@ -1650,18 +1679,18 @@
       name: 'responseCookie',
 
       cookieName:: null,
-      enabled:: true,
-      type:: 'FIXED',
+      enabled:: null,
+      type:: null,
       value:: null,
-      format:: 'AKAMAI',
-      defaultDomain:: true,
-      defaultPath:: true,
+      format:: null,
+      defaultDomain:: null,
+      defaultPath:: null,
       domain:: null,
-      path:: '/',
-      expires:: 'ON_BROWSER_CLOSE',
+      path:: null,
+      expires:: null,
       expirationDate:: null,
       duration:: null,
-      secure:: false,
+      secure:: null,
 
       options: {
         [name]: _[name]
@@ -1673,7 +1702,7 @@
       local _ = self,
       name: 'returnCacheStatus',
 
-      responseHeaderName:: 'Akamai-Cache-Status',
+      responseHeaderName:: null,
 
       options: {
         [name]: _[name]
@@ -1685,15 +1714,15 @@
       local _ = self,
       name: 'rewriteUrl',
 
-      behavior:: 'REPLACE',
+      behavior:: null,
       match:: null,
       matchRegex:: null,
       targetRegex:: null,
       targetPath:: null,
       targetPathPrepend:: null,
       targetUrl:: null,
-      matchMultiple:: false,
-      keepQueryString:: true,
+      matchMultiple:: null,
+      keepQueryString:: null,
 
       options: {
         [name]: _[name]
@@ -1705,7 +1734,7 @@
       local _ = self,
       name: 'rumCustom',
 
-      rumSampleRate:: 5,
+      rumSampleRate:: null,
       rumGroupName:: null,
 
       options: {
@@ -1718,23 +1747,23 @@
       local _ = self,
       name: 'saasDefinitions',
 
-      customerAction:: 'PATH',
-      customerCnameEnabled:: false,
-      customerCnameLevel:: 1,
+      customerAction:: null,
+      customerCnameEnabled:: null,
+      customerCnameLevel:: null,
       customerCookie:: null,
       customerQueryString:: null,
       customerRegex:: null,
       customerReplace:: null,
-      applicationAction:: 'PATH',
-      applicationCnameEnabled:: false,
-      applicationCnameLevel:: 1,
+      applicationAction:: null,
+      applicationCnameEnabled:: null,
+      applicationCnameLevel:: null,
       applicationCookie:: null,
       applicationQueryString:: null,
       applicationRegex:: null,
       applicationReplace:: null,
-      usersAction:: 'COOKIE',
-      usersCnameEnabled:: false,
-      usersCnameLevel:: 1,
+      usersAction:: null,
+      usersCnameEnabled:: null,
+      usersCnameLevel:: null,
       usersCookie:: null,
       usersQueryString:: null,
       usersRegex:: null,
@@ -1750,13 +1779,13 @@
       local _ = self,
       name: 'salesForceCommerceCloudClient',
 
-      enabled:: true,
+      enabled:: null,
       connectorId:: null,
-      originType:: 'DEFAULT',
+      originType:: null,
       sf3cOriginHost:: null,
-      originHostHeader:: 'DEFAULT',
+      originHostHeader:: null,
       sf3cOriginHostHeader:: null,
-      allowOverrideOriginCacheKey:: false,
+      allowOverrideOriginCacheKey:: null,
 
       options: {
         [name]: _[name]
@@ -1768,7 +1797,7 @@
       local _ = self,
       name: 'salesForceCommerceCloudProvider',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1780,7 +1809,7 @@
       local _ = self,
       name: 'salesForceCommerceCloudProviderHostHeader',
 
-      hostHeaderSource:: 'PROPERTY',
+      hostHeaderSource:: null,
 
       options: {
         [name]: _[name]
@@ -1793,9 +1822,9 @@
       name: 'scheduleInvalidation',
 
       start:: null,
-      repeat:: false,
-      repeatInterval:: '1d',
-      refreshMethod:: 'INVALIDATE',
+      repeat:: null,
+      repeatInterval:: null,
+      refreshMethod:: null,
 
       options: {
         [name]: _[name]
@@ -1807,9 +1836,9 @@
       local _ = self,
       name: 'scriptManagement',
 
-      enabled:: true,
-      serviceworker:: 'YES_SERVICE_WORKER',
-      timestamp:: 0,
+      enabled:: null,
+      serviceworker:: null,
+      timestamp:: null,
 
       options: {
         [name]: _[name]
@@ -1822,49 +1851,49 @@
       name: 'setVariable',
 
       variableName:: null,
-      valueSource:: 'EXPRESSION',
+      valueSource:: null,
       variableValue:: null,
-      extractLocation:: 'CLIENT_REQUEST_HEADER',
-      certificateFieldName:: 'KEY_LENGTH',
+      extractLocation:: null,
+      certificateFieldName:: null,
       headerName:: null,
       responseHeaderName:: null,
       setCookieName:: null,
       cookieName:: null,
-      locationId:: 'COUNTRY_CODE',
+      locationId:: null,
       pathComponentOffset:: null,
       queryParameterName:: null,
-      generator:: 'RAND',
-      numberOfBytes:: 16,
-      minRandomNumber:: '0',
-      maxRandomNumber:: '4294967295',
-      transform:: 'NONE',
+      generator:: null,
+      numberOfBytes:: null,
+      minRandomNumber:: null,
+      maxRandomNumber:: null,
+      transform:: null,
       operandOne:: null,
-      algorithm:: 'ALG_3DES',
+      algorithm:: null,
       encryptionKey:: null,
       initializationVector:: null,
-      encryptionMode:: 'CBC',
+      encryptionMode:: null,
       nonce:: null,
-      prependBytes:: true,
+      prependBytes:: null,
       formatString:: null,
       paramName:: null,
       separator:: null,
-      min:: 0,
-      max:: 4294967294,
+      min:: null,
+      max:: null,
       hmacKey:: null,
-      hmacAlgorithm:: 'SHA1',
-      ipVersion:: 'IPV4',
-      ipv6Prefix:: 128,
-      ipv4Prefix:: 32,
+      hmacAlgorithm:: null,
+      ipVersion:: null,
+      ipv6Prefix:: null,
+      ipv4Prefix:: null,
       subString:: null,
       regex:: null,
       replacement:: null,
-      caseSensitive:: true,
-      globalSubstitution:: false,
+      caseSensitive:: null,
+      globalSubstitution:: null,
       startIndex:: null,
       endIndex:: null,
       exceptChars:: null,
       forceChars:: null,
-      deviceProfile:: 'IS_MOBILE',
+      deviceProfile:: null,
 
       options: {
         [name]: _[name]
@@ -1887,8 +1916,8 @@
       local _ = self,
       name: 'simulateErrorCode',
 
-      errorType:: 'ERR_DNS_TIMEOUT',
-      timeout:: '5s',
+      errorType:: null,
+      timeout:: null,
 
       options: {
         [name]: _[name]
@@ -1912,16 +1941,16 @@
       local _ = self,
       name: 'sureRoute',
 
-      enabled:: true,
-      type:: 'PERFORMANCE',
+      enabled:: null,
+      type:: null,
       customMap:: null,
       testObjectUrl:: null,
-      toHostStatus:: 'INCOMING_HH',
+      toHostStatus:: null,
       toHost:: null,
-      raceStatTtl:: '30m',
-      forceSslForward:: false,
-      enableCustomKey:: false,
-      customStatKey:: '',
+      raceStatTtl:: null,
+      forceSslForward:: null,
+      enableCustomKey:: null,
+      customStatKey:: null,
 
       options: {
         [name]: _[name]
@@ -1933,8 +1962,8 @@
       local _ = self,
       name: 'teaLeaf',
 
-      enabled:: true,
-      limitToDynamic:: true,
+      enabled:: null,
+      limitToDynamic:: null,
       ibmCustomerId:: null,
 
       options: {
@@ -1947,8 +1976,8 @@
       local _ = self,
       name: 'tieredDistribution',
 
-      enabled:: true,
-      tieredDistributionMap:: 'CH2',
+      enabled:: null,
+      tieredDistributionMap:: null,
 
       options: {
         [name]: _[name]
@@ -1960,7 +1989,7 @@
       local _ = self,
       name: 'timeout',
 
-      value:: '5s',
+      value:: null,
 
       options: {
         [name]: _[name]
@@ -1972,7 +2001,7 @@
       local _ = self,
       name: 'validateEntityTag',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -1984,16 +2013,16 @@
       local _ = self,
       name: 'verifyTokenAuthorization',
 
-      useAdvanced:: false,
-      location:: 'COOKIE',
-      locationId:: '__token__',
-      algorithm:: 'SHA256',
-      escapeHmacInputs:: true,
-      ignoreQueryString:: false,
+      useAdvanced:: null,
+      location:: null,
+      locationId:: null,
+      algorithm:: null,
+      escapeHmacInputs:: null,
+      ignoreQueryString:: null,
       key:: null,
       transitionKey:: null,
       salt:: null,
-      failureResponse:: true,
+      failureResponse:: null,
 
       options: {
         [name]: _[name]
@@ -2005,43 +2034,43 @@
       local _ = self,
       name: 'visitorPrioritization',
 
-      enabled:: true,
+      enabled:: null,
       cloudletPolicy:: null,
-      userIdentificationByCookie:: false,
+      userIdentificationByCookie:: null,
       userIdentificationKeyCookie:: null,
-      userIdentificationByHeaders:: false,
+      userIdentificationByHeaders:: null,
       userIdentificationKeyHeaders:: null,
-      userIdentificationByIp:: false,
-      userIdentificationByParams:: false,
+      userIdentificationByIp:: null,
+      userIdentificationByParams:: null,
       userIdentificationKeyParams:: null,
-      allowedUserCookieEnabled:: true,
+      allowedUserCookieEnabled:: null,
       allowedUserCookieLabel:: null,
-      allowedUserCookieDuration:: 300,
-      allowedUserCookieRefresh:: true,
-      allowedUserCookieAdvanced:: false,
-      allowedUserCookieAutomaticSalt:: true,
+      allowedUserCookieDuration:: null,
+      allowedUserCookieRefresh:: null,
+      allowedUserCookieAdvanced:: null,
+      allowedUserCookieAutomaticSalt:: null,
       allowedUserCookieSalt:: null,
-      allowedUserCookieDomainType:: 'CUSTOMER',
+      allowedUserCookieDomainType:: null,
       allowedUserCookieDomain:: null,
-      allowedUserCookieHttpOnly:: false,
-      allowedUserCookieSecure:: false,
-      waitingRoomCookieEnabled:: true,
-      waitingRoomCookieShareLabel:: true,
+      allowedUserCookieHttpOnly:: null,
+      allowedUserCookieSecure:: null,
+      waitingRoomCookieEnabled:: null,
+      waitingRoomCookieShareLabel:: null,
       waitingRoomCookieLabel:: null,
-      waitingRoomCookieDuration:: 30,
-      waitingRoomCookieAdvanced:: false,
-      waitingRoomCookieAutomaticSalt:: true,
+      waitingRoomCookieDuration:: null,
+      waitingRoomCookieAdvanced:: null,
+      waitingRoomCookieAutomaticSalt:: null,
       waitingRoomCookieSalt:: null,
-      waitingRoomCookieDomainType:: 'CUSTOMER',
+      waitingRoomCookieDomainType:: null,
       waitingRoomCookieDomain:: null,
-      waitingRoomCookieHttpOnly:: false,
-      waitingRoomCookieSecure:: false,
-      waitingRoomStatusCode:: 200,
-      waitingRoomUseCpCode:: false,
+      waitingRoomCookieHttpOnly:: null,
+      waitingRoomCookieSecure:: null,
+      waitingRoomStatusCode:: null,
+      waitingRoomUseCpCode:: null,
       waitingRoomCpCode:: null,
       waitingRoomNetStorage:: null,
       waitingRoomDirectory:: null,
-      waitingRoomCacheTtl:: 5,
+      waitingRoomCacheTtl:: null,
 
       options: {
         [name]: _[name]
@@ -2078,7 +2107,7 @@
       local _ = self,
       name: 'webSockets',
 
-      enabled:: true,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -2090,7 +2119,7 @@
       local _ = self,
       name: 'webdav',
 
-      enabled:: false,
+      enabled:: null,
 
       options: {
         [name]: _[name]
@@ -2104,7 +2133,7 @@
       local _ = self,
       name: 'advancedImMatch',
 
-      imRequest:: 'FROM_IM',
+      imRequest:: null,
 
       options: {
         [name]: _[name]
@@ -2116,7 +2145,7 @@
       local _ = self,
       name: 'bucket',
 
-      percentage:: 100,
+      percentage:: null,
 
       options: {
         [name]: _[name]
@@ -2128,8 +2157,8 @@
       local _ = self,
       name: 'cacheability',
 
-      matchOperator:: 'IS',
-      value:: 'CACHEABLE',
+      matchOperator:: null,
+      value:: null,
 
       options: {
         [name]: _[name]
@@ -2141,7 +2170,7 @@
       local _ = self,
       name: 'chinaCdnRegion',
 
-      matchOperator:: 'IS',
+      matchOperator:: null,
 
       options: {
         [name]: _[name]
@@ -2153,7 +2182,7 @@
       local _ = self,
       name: 'clientCertificate',
 
-      isCertificatePresent:: true,
+      isCertificatePresent:: null,
 
       options: {
         [name]: _[name]
@@ -2165,9 +2194,9 @@
       local _ = self,
       name: 'clientIp',
 
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
-      useHeaders:: false,
+      useHeaders:: null,
 
       options: {
         [name]: _[name]
@@ -2179,8 +2208,8 @@
       local _ = self,
       name: 'clientIpVersion',
 
-      value:: 'IPV4',
-      useXForwardedFor:: false,
+      value:: null,
+      useXForwardedFor:: null,
 
       options: {
         [name]: _[name]
@@ -2204,8 +2233,8 @@
       local _ = self,
       name: 'contentDeliveryNetwork',
 
-      matchOperator:: 'IS',
-      network:: 'STAGING',
+      matchOperator:: null,
+      network:: null,
 
       options: {
         [name]: _[name]
@@ -2217,10 +2246,10 @@
       local _ = self,
       name: 'contentType',
 
-      matchOperator:: 'IS_ONE_OF',
-      values:: ['text/html*'],
-      matchWildcard:: true,
-      matchCaseSensitive:: false,
+      matchOperator:: null,
+      values:: null,
+      matchWildcard:: null,
+      matchCaseSensitive:: null,
 
       options: {
         [name]: _[name]
@@ -2232,16 +2261,16 @@
       local _ = self,
       name: 'deviceCharacteristic',
 
-      characteristic:: 'IS_WIRELESS_DEVICE',
-      stringMatchOperator:: 'MATCHES_ONE_OF',
-      numericMatchOperator:: 'IS',
-      versionMatchOperator:: 'IS',
-      booleanValue:: true,
+      characteristic:: null,
+      stringMatchOperator:: null,
+      numericMatchOperator:: null,
+      versionMatchOperator:: null,
+      booleanValue:: null,
       stringValue:: null,
       numericValue:: null,
       versionValue:: null,
-      matchCaseSensitive:: false,
-      matchWildcard:: true,
+      matchCaseSensitive:: null,
+      matchWildcard:: null,
 
       options: {
         [name]: _[name]
@@ -2253,9 +2282,9 @@
       local _ = self,
       name: 'fileExtension',
 
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
-      matchCaseSensitive:: false,
+      matchCaseSensitive:: null,
 
       options: {
         [name]: _[name]
@@ -2267,9 +2296,9 @@
       local _ = self,
       name: 'filename',
 
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
-      matchCaseSensitive:: true,
+      matchCaseSensitive:: null,
 
       options: {
         [name]: _[name]
@@ -2281,7 +2310,7 @@
       local _ = self,
       name: 'hostname',
 
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
 
       options: {
@@ -2320,7 +2349,7 @@
       local _ = self,
       name: 'matchResponseCode',
 
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
       lowerBound:: null,
       upperBound:: null,
@@ -2336,13 +2365,13 @@
       name: 'matchVariable',
 
       variableName:: null,
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       variableValues:: null,
       variableExpression:: null,
       lowerBound:: null,
       upperBound:: null,
-      matchWildcard:: false,
-      matchCaseSensitive:: true,
+      matchWildcard:: null,
+      matchCaseSensitive:: null,
 
       options: {
         [name]: _[name]
@@ -2354,8 +2383,8 @@
       local _ = self,
       name: 'metadataStage',
 
-      matchOperator:: 'IS',
-      value:: 'client-request',
+      matchOperator:: null,
+      value:: null,
 
       options: {
         [name]: _[name]
@@ -2367,7 +2396,7 @@
       local _ = self,
       name: 'originTimeout',
 
-      matchOperator:: 'ORIGIN_TIMED_OUT',
+      matchOperator:: null,
 
       options: {
         [name]: _[name]
@@ -2379,9 +2408,9 @@
       local _ = self,
       name: 'path',
 
-      matchOperator:: 'MATCHES_ONE_OF',
+      matchOperator:: null,
       values:: null,
-      matchCaseSensitive:: false,
+      matchCaseSensitive:: null,
 
       options: {
         [name]: _[name]
@@ -2394,15 +2423,15 @@
       name: 'queryStringParameter',
 
       parameterName:: null,
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
       lowerBound:: null,
       upperBound:: null,
-      matchWildcardName:: false,
-      matchCaseSensitiveName:: true,
-      matchWildcardValue:: false,
-      matchCaseSensitiveValue:: true,
-      escapeValue:: false,
+      matchWildcardName:: null,
+      matchCaseSensitiveName:: null,
+      matchWildcardValue:: null,
+      matchCaseSensitiveValue:: null,
+      escapeValue:: null,
 
       options: {
         [name]: _[name]
@@ -2414,7 +2443,7 @@
       local _ = self,
       name: 'random',
 
-      bucket:: 100,
+      bucket:: null,
 
       options: {
         [name]: _[name]
@@ -2426,9 +2455,9 @@
       local _ = self,
       name: 'regularExpression',
 
-      matchString:: '',
-      regex:: '',
-      caseSensitive:: true,
+      matchString:: null,
+      regex:: null,
+      caseSensitive:: null,
 
       options: {
         [name]: _[name]
@@ -2441,14 +2470,14 @@
       name: 'requestCookie',
 
       cookieName:: null,
-      matchOperator:: 'IS',
+      matchOperator:: null,
       value:: null,
       lowerBound:: null,
       upperBound:: null,
-      matchWildcardName:: false,
-      matchCaseSensitiveName:: true,
-      matchWildcardValue:: false,
-      matchCaseSensitiveValue:: true,
+      matchWildcardName:: null,
+      matchCaseSensitiveName:: null,
+      matchWildcardValue:: null,
+      matchCaseSensitiveValue:: null,
 
       options: {
         [name]: _[name]
@@ -2461,11 +2490,11 @@
       name: 'requestHeader',
 
       headerName:: null,
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
-      matchWildcardName:: false,
-      matchWildcardValue:: false,
-      matchCaseSensitiveValue:: true,
+      matchWildcardName:: null,
+      matchWildcardValue:: null,
+      matchCaseSensitiveValue:: null,
 
       options: {
         [name]: _[name]
@@ -2477,8 +2506,8 @@
       local _ = self,
       name: 'requestMethod',
 
-      matchOperator:: 'IS',
-      value:: 'GET',
+      matchOperator:: null,
+      value:: null,
 
       options: {
         [name]: _[name]
@@ -2490,7 +2519,7 @@
       local _ = self,
       name: 'requestProtocol',
 
-      value:: 'HTTP',
+      value:: null,
 
       options: {
         [name]: _[name]
@@ -2502,8 +2531,8 @@
       local _ = self,
       name: 'requestType',
 
-      matchOperator:: 'IS',
-      value:: 'CLIENT_REQ',
+      matchOperator:: null,
+      value:: null,
 
       options: {
         [name]: _[name]
@@ -2516,13 +2545,13 @@
       name: 'responseHeader',
 
       headerName:: null,
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
       lowerBound:: null,
       upperBound:: null,
-      matchWildcardName:: false,
-      matchWildcardValue:: false,
-      matchCaseSensitiveValue:: true,
+      matchWildcardName:: null,
+      matchWildcardValue:: null,
+      matchCaseSensitiveValue:: null,
 
       options: {
         [name]: _[name]
@@ -2534,13 +2563,13 @@
       local _ = self,
       name: 'time',
 
-      matchOperator:: 'BEGINNING',
-      repeatInterval:: '1d',
-      repeatDuration:: '1d',
-      lastingDuration:: '1d',
+      matchOperator:: null,
+      repeatInterval:: null,
+      repeatDuration:: null,
+      lastingDuration:: null,
       lastingDate:: null,
       repeatBeginDate:: null,
-      applyDaylightSavingsTime:: true,
+      applyDaylightSavingsTime:: null,
       beginDate:: null,
       endDate:: null,
 
@@ -2554,8 +2583,8 @@
       local _ = self,
       name: 'tokenAuthorization',
 
-      matchOperator:: 'IS_ANY_FAILURE',
-      statusList:: ['INVALID_HMAC_KEY', 'INVALID_DELIMITER', 'INVALID_ACL_DELIMITER', 'INVALID_IP', 'INVALID_URL', 'MISSING_EXPIRATION_TIME', 'NEED_URL_XOR_ACL', 'UNSUPPORTED_VERSION', 'MISSING_TOKEN', 'MISSING_URL', 'INVALID_TOKEN', 'INVALID_HMAC', 'TOKEN_NOT_VALID_YET', 'EXPIRED_TOKEN', 'UNAUTHORIZED_IP', 'UNAUTHORIZED_URL', 'INVALID_EXPIRATION_TIME'],
+      matchOperator:: null,
+      statusList:: null,
 
       options: {
         [name]: _[name]
@@ -2567,10 +2596,10 @@
       local _ = self,
       name: 'userAgent',
 
-      matchOperator:: 'IS_ONE_OF',
+      matchOperator:: null,
       values:: null,
-      matchWildcard:: true,
-      matchCaseSensitive:: false,
+      matchWildcard:: null,
+      matchCaseSensitive:: null,
 
       options: {
         [name]: _[name]
@@ -2582,13 +2611,13 @@
       local _ = self,
       name: 'userLocation',
 
-      field:: 'COUNTRY',
-      matchOperator:: 'IS_ONE_OF',
+      field:: null,
+      matchOperator:: null,
       countryValues:: null,
       continentValues:: null,
       regionValues:: null,
-      checkIps:: 'BOTH',
-      useOnlyFirstXForwardedForIp:: false,
+      checkIps:: null,
+      useOnlyFirstXForwardedForIp:: null,
 
       options: {
         [name]: _[name]
@@ -2600,13 +2629,13 @@
       local _ = self,
       name: 'userNetwork',
 
-      field:: 'NETWORK',
-      matchOperator:: 'IS_ONE_OF',
+      field:: null,
+      matchOperator:: null,
       networkTypeValues:: null,
       networkValues:: null,
       bandwidthValues:: null,
-      checkIps:: 'BOTH',
-      useOnlyFirstXForwardedForIp:: false,
+      checkIps:: null,
+      useOnlyFirstXForwardedForIp:: null,
 
       options: {
         [name]: _[name]
@@ -2618,7 +2647,7 @@
       local _ = self,
       name: 'variableError',
 
-      result:: true,
+      result:: null,
       variableNames:: null,
 
       options: {
