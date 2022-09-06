@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "dependencies": [
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/akamai-contrib/postman-jsonnet.git",
+          "subdir": ""
+        }
+      },
+      "version": "602b1b960a1a34371dc7ed093f88cb30fb5e862e",
+      "sum": "xqaCffSUqAPt2wiJCpjTRohhKOIoFO4t+QN6T27Zlac="
+    }
+  ],
+  "legacyImports": false
+}

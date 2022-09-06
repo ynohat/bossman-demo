@@ -1,1 +1,97 @@
-{ }
+{
+   "event": [
+      {
+         "listen": "prerequest",
+         "script": {
+            "exec": [
+               "function createHmac(algo, key) {\n  switch (algo) {\n    case 'sha256':\n      return CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA256, key);\n    case 'sha1':\n      return CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA1, key);\n    case 'md5':\n      return CryptoJS.algo.HMAC.create(CryptoJS.algo.MD5, key);\n  }\n  throw new Error('HMAC algorithm should be sha256 or sha1 or md5');\n}\n\nclass EdgeAuth {\n  constructor(options) {\n    this.options = options\n\n    if (!this.options.tokenName) {\n      this.options.tokenName = '__token__'\n    }\n\n    if (!this.options.key) {\n      throw new Error('key must be provided to generate a token.')\n    }\n\n    if (this.options.algorithm === undefined) {\n      this.options.algorithm = 'sha256'\n    }\n\n    if (this.options.escapeEarly === undefined) {\n      this.options.escapeEarly = false\n    }\n\n    if (!this.options.fieldDelimiter) {\n      this.options.fieldDelimiter = '~'\n    }\n\n    if (!this.options.aclDelimiter) {\n      this.options.aclDelimiter = '!'\n    }\n\n    if (this.options.verbose === undefined) {\n      this.options.verbose = false\n    }\n  }\n\n  _escapeEarly(text) {\n    if (this.options.escapeEarly) {\n      text = encodeURIComponent(text)\n        .replace(/[~'*]/g,\n          function (c) {\n            return '%' + c.charCodeAt(0).toString(16)\n          }\n        )\n      var pattern = /%../g\n      text = text.replace(pattern, function (match) {\n        return match.toLowerCase()\n      })\n    }\n    return text\n  }\n\n  _generateToken(path, isUrl) {\n    var startTime = this.options.startTime\n    var endTime = this.options.endTime\n\n    if (typeof startTime === 'string' && startTime.toLowerCase() === 'now') {\n      startTime = parseInt(Date.now() / 1000)\n    } else if (startTime) {\n      if (typeof startTime === 'number' && startTime <= 0) {\n        throw new Error('startTime must be number ( > 0 ) or \"now\"')\n      }\n    }\n\n    if (typeof endTime === 'number' && endTime <= 0) {\n      throw new Error('endTime must be number ( > 0 )')\n    }\n\n    if (typeof this.options.windowSeconds === 'number' && this.options.windowSeconds <= 0) {\n      throw new Error('windowSeconds must be number( > 0 )')\n    }\n\n    if (!endTime) {\n      if (this.options.windowSeconds) {\n        if (!startTime) {\n          startTime = parseInt(Date.now() / 1000)\n        }\n        endTime = parseInt(startTime) + parseInt(this.options.windowSeconds)\n      } else {\n        throw new Error('You must provide endTime or windowSeconds')\n      }\n    }\n\n    if (startTime && (endTime < startTime)) {\n      throw new Error('Token will have already expired')\n    }\n\n    if (this.options.verbose) {\n      console.log(\"Akamai Token Generation Parameters\")\n\n      if (isUrl) {\n        console.log(\"    URL         : \" + path)\n      } else {\n        console.log(\"    ACL         : \" + path)\n      }\n\n      console.log(\"    Token Type      : \" + this.options.tokenType)\n      console.log(\"    Token Name      : \" + this.options.tokenName)\n      console.log(\"    Key/Secret      : \" + this.options.key)\n      console.log(\"    Algo            : \" + this.options.algorithm)\n      console.log(\"    Salt            : \" + this.options.salt)\n      console.log(\"    IP              : \" + this.options.ip)\n      console.log(\"    Payload         : \" + this.options.payload)\n      console.log(\"    Session ID      : \" + this.options.sessionId)\n      console.log(\"    Start Time      : \" + startTime)\n      console.log(\"    Window(seconds) : \" + this.options.windowSeconds)\n      console.log(\"    End Time        : \" + endTime)\n      console.log(\"    Field Delimiter : \" + this.options.fieldDelimiter)\n      console.log(\"    ACL Delimiter   : \" + this.options.aclDelimiter)\n      console.log(\"    Escape Early    : \" + this.options.escapeEarly)\n    }\n\n    var hashSource = []\n    var newToken = []\n\n    if (this.options.ip) {\n      newToken.push(\"ip=\" + this._escapeEarly(this.options.ip))\n    }\n\n    if (this.options.startTime) {\n      newToken.push(\"st=\" + startTime)\n    }\n    newToken.push(\"exp=\" + endTime)\n\n    if (!isUrl) {\n      newToken.push(\"acl=\" + path)\n    }\n\n    if (this.options.sessionId) {\n      newToken.push(\"id=\" + this._escapeEarly(this.options.sessionId))\n    }\n\n    if (this.options.payload) {\n      newToken.push(\"data=\" + this._escapeEarly(this.options.payload))\n    }\n\n    hashSource = newToken.slice()\n\n    if (isUrl) {\n      hashSource.push(\"url=\" + this._escapeEarly(path))\n    }\n\n    if (this.options.salt) {\n      hashSource.push(\"salt=\" + this.options.salt)\n    }\n\n    this.options.algorithm = this.options.algorithm.toString().toLowerCase()\n    var hmac = createHmac(\n      this.options.algorithm,\n      CryptoJS.enc.Hex.parse(this.options.key),\n    )\n\n    hmac.update(hashSource.join(this.options.fieldDelimiter))\n    newToken.push(\"hmac=\" + hmac.finalize())\n\n    return newToken.join(this.options.fieldDelimiter)\n  }\n\n  generateACLToken(acl) {\n    if (!acl) {\n      throw new Error('You must provide acl')\n    } else if (acl.constructor == Array) {\n      acl = acl.join(this.options.aclDelimiter)\n    }\n\n    return this._generateToken(acl, false)\n  }\n\n  generateURLToken(url) {\n    if (!url) {\n      throw new Error('You must provide url')\n    }\n    return this._generateToken(url, true)\n  }\n}\n\n\n/**\n * Return all values of the given response header as an Array.\n *\n * Postman does not yet have a simple API for retrieving multiple-instance response\n * headers without a workaround:\n * https://github.com/postmanlabs/postman-app-support/issues/6143\n */\nfunction getResponseHeaderValues(response, name) {\n  return response.headers\n    .filter(function (header) { return String(header.key).toLowerCase() === name; })\n    .map(function (header) { return header.valueOf(); });\n}\n\nakamai = {\n  /**\n   * Parse and return the values of x-akamai-session-info values from the response,\n   * as an object.\n   */\n  extractedValues(response) {\n    let pat = /^name=([^;]*); value=([^;]*).*$/;\n    return getResponseHeaderValues(response, \"x-akamai-session-info\")\n      .reduce(function (vars, value) {\n        if (pat.test(value)) {\n          let [res, k, v] = value.match(pat);\n          vars[k] = v;\n        }\n        return vars;\n      }, {});\n  },\n\n  EdgeAuth: EdgeAuth,\n};"
+            ]
+         },
+         "type": "text/javascript"
+      },
+      {
+         "listen": "test",
+         "script": {
+            "exec": [ ]
+         },
+         "type": "text/javascript"
+      }
+   ],
+   "info": {
+      "name": "www tests for [prod]",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+   },
+   "item": [
+      {
+         "event": [
+            {
+               "listen": "prerequest",
+               "script": {
+                  "exec": [ ]
+               },
+               "type": "text/javascript"
+            },
+            {
+               "listen": "test",
+               "script": {
+                  "exec": [
+                     "(function (params) {\n  pm.test(params.title, function () {\n    pm.expect(pm.response.headers.get(params.header)).to.match(new RegExp(params.regex));\n  });\n})({\n    \"header\": \"x-cache-key\",\n    \"regex\": \"/httpbin.org/\",\n    \"title\": \"Cache key matches httpbin.org\"\n});\n"
+                  ]
+               },
+               "type": "text/javascript"
+            },
+            {
+               "listen": "test",
+               "script": {
+                  "exec": "//console.log(\"Request Headers\", pm.request.headers);\n//console.log(\"Response Headers\", pm.response.headers);\n"
+               },
+               "type": "text/javascript"
+            }
+         ],
+         "name": "Origin and cache settings",
+         "protocolProfileBehavior": {
+            "disableCookies": true,
+            "followRedirects": false
+         },
+         "request": {
+            "body": { },
+            "header": [
+               {
+                  "key": "Pragma",
+                  "value": "akamai-x-get-cache-key"
+               }
+            ],
+            "method": "GET",
+            "url": "http://{{hostname}}"
+         },
+         "variable": [ ]
+      }
+   ],
+   "name": "www tests for [prod]",
+   "variable": [
+      {
+         "key": "cpCode",
+         "value": 585898
+      },
+      {
+         "key": "edgeHostname",
+         "value": "ak.hogg.fr.edgekey.net"
+      },
+      {
+         "key": "hostname",
+         "value": "www.bossman-demo.ak.hogg.fr"
+      },
+      {
+         "key": "name",
+         "value": "prod"
+      },
+      {
+         "key": "origin",
+         "value": "httpbin.org"
+      },
+      {
+         "key": "propertyName",
+         "value": "www-prod"
+      }
+   ]
+}

@@ -1,5 +1,6 @@
 {
   "jsonnet.libPaths": [
-    "/Users/ahogg/git/bossman-demo/lib"
+    "/Users/ahogg/git/bossman-demo/lib",
+    "/Users/ahogg/git/bossman-demo/vendor",
   ]
 }
