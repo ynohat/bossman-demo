@@ -2,10 +2,8 @@ resources:
   - module: bossman.plugins.akamai.property
     pattern: dist/akamai/property/{name}
     options:
-      section: switcher
-      switch_key: B-C-1ED34DK:1-8BYUX
+      section: bossman-demo
   - module: bossman.plugins.akamai.cloudlet_v3
     pattern: dist/akamai/cloudlets/{name}
     options:
-      section: switcher
-      switch_key: B-C-1ED34DK:1-8BYUX
+      section: bossman-demo

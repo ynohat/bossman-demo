@@ -37,11 +37,26 @@ Other installation instructions and docs available at https://bossman.readthedoc
 
 * **Akamai EdgeGrid credentials**
 
-If you are with Akamai, you need to create a section called `switcher` in `~/.edgerc` with switchkey-enabled credentials, allowing PAPI Read-Write.
-The switch key is already configured in [.bossman](.bossman) and points at the `Advanced Solutions, Services` account.
+For an introduction to Akamai EdgeGrid, please refer to https://techdocs.akamai.com/developer/docs/authenticate-with-edgegrid.
 
-If you are not with Akamai, this is good for reference purposes but setting it up will require a little bit more work that is not yet documented in this README
-(easy enough to figure out, though).
+To use this demo:
+
+* Provision credentials with READ/WRITE access to PAPI and Cloudlets v3.
+* Put them in a `bossman-demo` section within your `.edgerc` file
+* 
+
+> If you are with Akamai, you can add an account switch key and pointing at the `Advanced Solutions, Services` account:
+>
+> ```
+> [bossman-demo]
+> client_secret = xxxx
+> host = xxxx
+> access_token = xxxx
+> client_token = xxxx
+> account_key = B-C-1ED34DK:1-8BYUX
+> ```
+>
+> This will allow you to use the actual configurations managed by this demo without any other changes.
 
 ## Simple Walkthrough
 
