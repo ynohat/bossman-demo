@@ -2,7 +2,7 @@
   "contractId": "ctr_C-1ED34DY",
   "groupId": "grp_101216",
   "edgeHostname": {
-    "domainPrefix": "foo-bar-baz2",
+    "domainPrefix": "foo-bar-baz3",
     "domainSuffix": "akamaized.net",
     "ipVersionBehavior": "IPV6_COMPLIANCE",
     "productId": "prd_Adaptive_Media_Delivery",
