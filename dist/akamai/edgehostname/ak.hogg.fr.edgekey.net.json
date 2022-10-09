@@ -1,0 +1,11 @@
+{
+  "contractId": "ctr_C-1ED34DY",
+  "groupId": "grp_101216",
+  "edgeHostname": {
+    "domainPrefix": "ak.hogg.fr",
+    "domainSuffix": "edgekey.net",
+    "ipVersionBehavior": "IPV6_COMPLIANCE",
+    "productId": "SPM",
+    "secureNetwork": "ENHANCED_TLS"
+  }
+}
