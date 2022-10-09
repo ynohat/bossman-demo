@@ -6,6 +6,7 @@
     "domainSuffix": "edgekey.net",
     "ipVersionBehavior": "IPV6_COMPLIANCE",
     "productId": "SPM",
-    "secureNetwork": "ENHANCED_TLS"
+    "secureNetwork": "ENHANCED_TLS",
+    "certEnrollmentId": 144436
   }
 }
