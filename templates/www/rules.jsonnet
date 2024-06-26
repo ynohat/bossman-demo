@@ -14,6 +14,8 @@ local env = std.extVar('env');
       
       Fun fact: this rule MUST be called 'default' in JSON, otherwise weird things
       happen.
+
+      :shrug:
       
       src: templates/www/rules.jsonnet
     |||,
