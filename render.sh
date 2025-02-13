@@ -8,6 +8,12 @@ ls envs/*/*.jsonnet |
       --ext-code-file env=./envs/${tplName}/${envFile} \
       --ext-code-file globals=./globals.jsonnet \
       ./templates/${tplName}.jsonnet
+
+    echo "> Rendering $tplName/$envName docs..."
+    jsonnet -S -cm ./dist -J ./lib -J ./vendor \
+      --ext-code-file env=./envs/${tplName}/${envFile} \
+      --ext-code-file globals=./globals.jsonnet \
+      ./templates/${tplName}-docs.jsonnet
     echo
   done
 
